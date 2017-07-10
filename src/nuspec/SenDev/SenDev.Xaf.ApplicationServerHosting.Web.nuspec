@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>SenDev.Xaf.ApplicationServerHosting.Web.SelfCompiled</id>
+    <version>$version$</version>
+    <title>SenDev XAF ApplicationServer Hosting Web Library (SelfCompiled)</title>
+    <authors>Sergej Derjabkin</authors>
+    <owners>Sergej Derjabkin</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Xaf ApplicationServer web server library</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2015-2016 (c) Sergej Derjabkin</copyright>
+    <tags>DevExpress XAF eXpressApplicationFramework</tags>
+	<dependencies> 
+		<dependency id="SenDev.Xaf.ApplicationServerHosting.SelfCompiled"  version="$version$"/> 
+	</dependencies>
+  </metadata>
+  <files>
+     <file src="$SourceDir$\SenDev.Xaf.ApplicationServerHosting.Web.dll" target="lib\net40" />
+	<file src="$SourceDir$\SenDev.Xaf.ApplicationServerHosting.Web.pdb" target="lib\net40" />
+	<file src="$SourceDir$\..\..\SenDev.Xaf.ApplicationServerHosting.Web\**\*.cs" target="src\SenDev.Xaf.ApplicationServerHosting.Web" />
+
+  </files>
+</package>

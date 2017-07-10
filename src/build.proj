@@ -1,0 +1,54 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5" DefaultTargets="Build">
+  <Import Project="Buildeploy\Buildeploy.targets"/>
+  <PropertyGroup>
+	<ProjectName>XpoSync</ProjectName>
+	<OutputRoot>bin\</OutputRoot>
+	<DevExpressVersion>17.1.3</DevExpressVersion>
+    <NuGetTool>.nuget\NuGet.exe</NuGetTool>
+	<ClickOnceTargetFramework>.NET Framework, Version=4.5.2</ClickOnceTargetFramework>
+    <RedistConfiguration>Debug</RedistConfiguration>
+	<RedistRoot>C:\Redist\$(ProjectName)</RedistRoot>
+	<VersionPattern Condition="$(BUILD_NUMBER)==''">$(DevExpressVersion).+1.*</VersionPattern>
+    <VersionPattern Condition="$(BUILD_NUMBER)!=''">$(DevExpressVersion).$(BUILD_NUMBER)</VersionPattern>
+	<NuspecFile>nuspec\XpoSync.Lib.nuspec</NuspecFile>
+	<ReferenceBasePath>$(MSBuildProjectDirectory)</ReferenceBasePath>
+	<IsReleaseBuild Condition="$(BranchName.Contains('DX-v'))">True</IsReleaseBuild>
+	<NugetPackagesSource>$(PackageSources)</NugetPackagesSource>
+  </PropertyGroup>
+  <ItemGroup>
+	
+    <ProjectToBuild Include="build-core.proj"/>
+
+	<PackageConfig Include="SenDev">
+		<ReferencePath>$(SenDevReferencePath)</ReferencePath>
+		<NuspecDir>nuspec\SenDev</NuspecDir>
+	</PackageConfig>
+	
+	<PackageConfig Include="DX">	
+		<ReferencePath>$(DXReferencePath)</ReferencePath>
+		<NuspecDir>nuspec\DX</NuspecDir>
+	</PackageConfig>
+
+  </ItemGroup>
+  
+   <Target Name="IncreaseVersion" DependsOnTargets="NugetRestore">
+	<ChangeVersion Files="CommonVersion.cs" Version="$(VersionPattern)">
+      <Output TaskParameter="NewVersion" PropertyName="Version"/>
+    </ChangeVersion>
+  </Target>
+
+  <Target Name="NuGet" Inputs="@(PackageConfig)" Outputs="EmptyOutput" DependsOnTargets="IncreaseVersion">
+
+	<MSBuild Projects="@(ProjectToBuild)"
+                 Properties="Configuration=$(RedistConfiguration);OutputPath=$(MSBuildProjectDirectory)\bin\%(PackageConfig.Identity);ReferencePath=%(PackageConfig.ReferencePath);NuspecDir=%(PackageConfig.NuspecDir);Version=$(Version)"
+                 StopOnFirstFailure="true" ToolsVersion="$(ToolsVersion)"  Targets="Nuget"/>
+
+    <MakeDir Directories="bin\nuget"/>
+	<PropertyGroup>
+		<PackageVersion Condition="$(BranchName)=='' OR $(BranchName)=='master' OR $(IsReleaseBuild)==true">$(Version)</PackageVersion>
+		<PackageVersion Condition="$(BranchName)!='' AND $(BranchName)!='master' AND $(IsReleaseBuild)!=true">$(Version)-$(BranchName)</PackageVersion>
+	</PropertyGroup>
+    <Exec ContinueOnError="false" Command="$(NuGetTool) push bin\Nuget\SenDev*$(Version).nupkg -ApiKey $(NugetPushApiKey) -Source &quot;$(PackageSources)&quot;" Condition="$(NugetPushApiKey)!=''"/>
+  </Target>
+  
+</Project>
