@@ -320,7 +320,6 @@ namespace SenDev.Xaf.ApplicationServerHosting.Web
         {
             CustomCreateXPDictionaryEventArgs args = new CustomCreateXPDictionaryEventArgs();
             CustomCreateXPDictionary?.Invoke(null, args);
-            DevExpress.ExpressApp.DC.Xpo.XpoTypeInfoSource
             return args.Dictionary ?? XpoTypesInfoHelper.GetXpoTypeInfoSource().XPDictionary;
         }
 
