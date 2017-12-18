@@ -309,7 +309,7 @@ namespace SenDev.Xaf.ApplicationServerHosting.Web
         private static IDataLayer CreateDataLayer()
         {
             XPDictionary dictionary = CreateDictionary();
-            CustomCreateDataLayerEventArgs args = new CustomCreateDataLayerEventArgs(dictionary);
+            CustomCreateDataLayerEventArgs args = new CustomCreateDataLayerEventArgs(dictionary, dataStore);
             CustomCreateDataLayer?.Invoke(null, args);
 
             return args.DataLayer ?? (UseThreadSafeDataLayer ?
