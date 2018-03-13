@@ -38,11 +38,7 @@ namespace SenDev.Xaf.ApplicationServerHosting.Web
         public static event EventHandler<CustomCreateXPDictionaryEventArgs> CustomCreateXPDictionary;
         public static event EventHandler<CustomCreateDataLayerEventArgs> CustomCreateDataLayer;
 
-        public ApplicationServer()
-        {
-
-        }
-
+        
         static ApplicationServer()
         {
             EnsureValueManager();
