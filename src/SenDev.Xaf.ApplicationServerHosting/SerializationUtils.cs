@@ -13,17 +13,24 @@ namespace SenDev.Xaf.ApplicationServerHosting
         {
             using (MemoryStream stream = new MemoryStream())
             {
-                BinaryFormatter formatter = new BinaryFormatter();
+                BinaryFormatter formatter = CreateBinaryFormatter();
                 formatter.Serialize(stream, obj);
                 return stream.ToArray();
             }
+        }
+
+        private static BinaryFormatter CreateBinaryFormatter()
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            formatter.AssemblyFormat = System.Runtime.Serialization.Formatters.FormatterAssemblyStyle.Simple;
+            return formatter;
         }
 
         public static T BinaryDeserialize<T>(byte[] data)
         {
             using (MemoryStream stream = new MemoryStream(data))
             {
-                BinaryFormatter formatter = new BinaryFormatter();
+                BinaryFormatter formatter = CreateBinaryFormatter();
                 return (T)formatter.Deserialize(stream);
             }
         }
