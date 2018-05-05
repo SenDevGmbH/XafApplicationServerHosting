@@ -1,12 +1,11 @@
-﻿using DevExpress.ExpressApp;
-using DevExpress.ExpressApp.Security.ClientServer;
-using System;
+﻿using System;
 using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
-using System.Net;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
+using DevExpress.ExpressApp;
+using DevExpress.ExpressApp.Security.ClientServer;
 
 namespace SenDev.Xaf.ApplicationServerHosting
 {
@@ -27,7 +26,7 @@ namespace SenDev.Xaf.ApplicationServerHosting
             {
                 XafApplication application = (XafApplication)sender;
                 e.ObjectSpaceProviders.Add(CreateObjectSpaceProvider(clientDataServer, securityClient));
-                e.ObjectSpaceProviders.Add(new NonPersistentObjectSpaceProvider(application.TypesInfo, null));
+                e.ObjectSpaceProviders.Add(CreateNonPersistentObjectSpaceProvider(application));
 
             };
             winApplication.Security = securityClient;
@@ -35,6 +34,11 @@ namespace SenDev.Xaf.ApplicationServerHosting
                 winApplication.DatabaseVersionMismatch += Application_DatabaseVersionMismatch;
 
                 return true;
+        }
+
+        protected virtual NonPersistentObjectSpaceProvider CreateNonPersistentObjectSpaceProvider(XafApplication application)
+        {
+            return new NonPersistentObjectSpaceProvider(application.TypesInfo, null);
         }
 
         public DatabaseUpdateHandlerMode DatabaseUpdateMode { get; set; } = DatabaseUpdateHandlerMode.WhenDebugging;
