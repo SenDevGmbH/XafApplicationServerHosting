@@ -39,128 +39,128 @@
     <AssemblyOriginatorKeyFile>SenDev.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.BonusSkins.v17.2">
-      <HintPath>..\packages\DevExpress.BonusSkins.17.1.3\lib\net40\DevExpress.BonusSkins.v17.2.dll</HintPath>
+    <Reference Include="DevExpress.BonusSkins.v18.1">
+      <HintPath>..\packages\DevExpress.BonusSkins.17.1.3\lib\net40\DevExpress.BonusSkins.v18.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Charts.v17.2.Core">
-      <HintPath>..\packages\DevExpress.Core.17.1.3\lib\net40\DevExpress.Charts.v17.2.Core.dll</HintPath>
+    <Reference Include="DevExpress.Charts.v18.1.Core">
+      <HintPath>..\packages\DevExpress.Core.17.1.3\lib\net40\DevExpress.Charts.v18.1.Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.CodeParser.v17.2">
-      <HintPath>..\packages\DevExpress.Core.17.1.3\lib\net40\DevExpress.CodeParser.v17.2.dll</HintPath>
+    <Reference Include="DevExpress.CodeParser.v18.1">
+      <HintPath>..\packages\DevExpress.Core.17.1.3\lib\net40\DevExpress.CodeParser.v18.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Data.v17.2">
-      <HintPath>..\packages\DevExpress.Core.17.1.3\lib\net40\DevExpress.Data.v17.2.dll</HintPath>
+    <Reference Include="DevExpress.Data.v18.1">
+      <HintPath>..\packages\DevExpress.Core.17.1.3\lib\net40\DevExpress.Data.v18.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.DataAccess.v17.2">
-      <HintPath>..\packages\DevExpress.DataAccess.17.1.3\lib\net40\DevExpress.DataAccess.v17.2.dll</HintPath>
+    <Reference Include="DevExpress.DataAccess.v18.1">
+      <HintPath>..\packages\DevExpress.DataAccess.17.1.3\lib\net40\DevExpress.DataAccess.v18.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.DataAccess.v17.2.UI">
-      <HintPath>..\packages\DevExpress.DataAccess.UI.17.1.3\lib\net40\DevExpress.DataAccess.v17.2.UI.dll</HintPath>
+    <Reference Include="DevExpress.DataAccess.v18.1.UI">
+      <HintPath>..\packages\DevExpress.DataAccess.UI.17.1.3\lib\net40\DevExpress.DataAccess.v18.1.UI.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Diagram.v17.2.Core">
-      <HintPath>..\packages\DevExpress.Diagram.Core.17.1.3\lib\net40\DevExpress.Diagram.v17.2.Core.dll</HintPath>
+    <Reference Include="DevExpress.Diagram.v18.1.Core">
+      <HintPath>..\packages\DevExpress.Diagram.Core.17.1.3\lib\net40\DevExpress.Diagram.v18.1.Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.ExpressApp.Security.v17.2">
-      <HintPath>..\packages\DevExpress.ExpressApp.Security.17.1.3\lib\net40\DevExpress.ExpressApp.Security.v17.2.dll</HintPath>
+    <Reference Include="DevExpress.ExpressApp.Security.v18.1">
+      <HintPath>..\packages\DevExpress.ExpressApp.Security.17.1.3\lib\net40\DevExpress.ExpressApp.Security.v18.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.ExpressApp.v17.2">
-      <HintPath>..\packages\DevExpress.ExpressApp.17.1.3\lib\net40\DevExpress.ExpressApp.v17.2.dll</HintPath>
+    <Reference Include="DevExpress.ExpressApp.v18.1">
+      <HintPath>..\packages\DevExpress.ExpressApp.17.1.3\lib\net40\DevExpress.ExpressApp.v18.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.ExpressApp.Xpo.v17.2">
-      <HintPath>..\packages\DevExpress.ExpressApp.Xpo.17.1.3\lib\net40\DevExpress.ExpressApp.Xpo.v17.2.dll</HintPath>
+    <Reference Include="DevExpress.ExpressApp.Xpo.v18.1">
+      <HintPath>..\packages\DevExpress.ExpressApp.Xpo.17.1.3\lib\net40\DevExpress.ExpressApp.Xpo.v18.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Images.v17.2">
-      <HintPath>..\packages\DevExpress.Core.17.1.3\lib\net40\DevExpress.Images.v17.2.dll</HintPath>
+    <Reference Include="DevExpress.Images.v18.1">
+      <HintPath>..\packages\DevExpress.Core.17.1.3\lib\net40\DevExpress.Images.v18.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Office.v17.2.Core">
-      <HintPath>..\packages\DevExpress.Core.17.1.3\lib\net40\DevExpress.Office.v17.2.Core.dll</HintPath>
+    <Reference Include="DevExpress.Office.v18.1.Core">
+      <HintPath>..\packages\DevExpress.Core.17.1.3\lib\net40\DevExpress.Office.v18.1.Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Pdf.v17.2.Core">
-      <HintPath>..\packages\DevExpress.Core.17.1.3\lib\net40\DevExpress.Pdf.v17.2.Core.dll</HintPath>
+    <Reference Include="DevExpress.Pdf.v18.1.Core">
+      <HintPath>..\packages\DevExpress.Core.17.1.3\lib\net40\DevExpress.Pdf.v18.1.Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Pdf.v17.2.Drawing">
-      <HintPath>..\packages\DevExpress.Core.17.1.3\lib\net40\DevExpress.Pdf.v17.2.Drawing.dll</HintPath>
+    <Reference Include="DevExpress.Pdf.v18.1.Drawing">
+      <HintPath>..\packages\DevExpress.Core.17.1.3\lib\net40\DevExpress.Pdf.v18.1.Drawing.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Persistent.Base.v17.2">
-      <HintPath>..\packages\DevExpress.Persistent.Base.17.1.3\lib\net40\DevExpress.Persistent.Base.v17.2.dll</HintPath>
+    <Reference Include="DevExpress.Persistent.Base.v18.1">
+      <HintPath>..\packages\DevExpress.Persistent.Base.17.1.3\lib\net40\DevExpress.Persistent.Base.v18.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.PivotGrid.v17.2.Core">
-      <HintPath>..\packages\DevExpress.Core.17.1.3\lib\net40\DevExpress.PivotGrid.v17.2.Core.dll</HintPath>
+    <Reference Include="DevExpress.PivotGrid.v18.1.Core">
+      <HintPath>..\packages\DevExpress.Core.17.1.3\lib\net40\DevExpress.PivotGrid.v18.1.Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Printing.v17.2.Core">
-      <HintPath>..\packages\DevExpress.Core.17.1.3\lib\net40\DevExpress.Printing.v17.2.Core.dll</HintPath>
+    <Reference Include="DevExpress.Printing.v18.1.Core">
+      <HintPath>..\packages\DevExpress.Core.17.1.3\lib\net40\DevExpress.Printing.v18.1.Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.RichEdit.v17.2.Core">
-      <HintPath>..\packages\DevExpress.Core.17.1.3\lib\net40\DevExpress.RichEdit.v17.2.Core.dll</HintPath>
+    <Reference Include="DevExpress.RichEdit.v18.1.Core">
+      <HintPath>..\packages\DevExpress.Core.17.1.3\lib\net40\DevExpress.RichEdit.v18.1.Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Sparkline.v17.2.Core">
-      <HintPath>..\packages\DevExpress.Core.17.1.3\lib\net40\DevExpress.Sparkline.v17.2.Core.dll</HintPath>
+    <Reference Include="DevExpress.Sparkline.v18.1.Core">
+      <HintPath>..\packages\DevExpress.Core.17.1.3\lib\net40\DevExpress.Sparkline.v18.1.Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Utils.v17.2">
-      <HintPath>..\packages\DevExpress.Core.17.1.3\lib\net40\DevExpress.Utils.v17.2.dll</HintPath>
+    <Reference Include="DevExpress.Utils.v18.1">
+      <HintPath>..\packages\DevExpress.Core.17.1.3\lib\net40\DevExpress.Utils.v18.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Utils.v17.2.UI">
-      <HintPath>..\packages\DevExpress.Utils.UI.17.1.3\lib\net40\DevExpress.Utils.v17.2.UI.dll</HintPath>
+    <Reference Include="DevExpress.Utils.v18.1.UI">
+      <HintPath>..\packages\DevExpress.Utils.UI.17.1.3\lib\net40\DevExpress.Utils.v18.1.UI.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Xpo.v17.2">
-      <HintPath>..\packages\DevExpress.Xpo.17.1.3\lib\net40\DevExpress.Xpo.v17.2.dll</HintPath>
+    <Reference Include="DevExpress.Xpo.v18.1">
+      <HintPath>..\packages\DevExpress.Xpo.17.1.3\lib\net40\DevExpress.Xpo.v18.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraBars.v17.2">
-      <HintPath>..\packages\DevExpress.XtraEditors.17.1.3\lib\net40\DevExpress.XtraBars.v17.2.dll</HintPath>
+    <Reference Include="DevExpress.XtraBars.v18.1">
+      <HintPath>..\packages\DevExpress.XtraEditors.17.1.3\lib\net40\DevExpress.XtraBars.v18.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.v17.2">
-      <HintPath>..\packages\DevExpress.XtraCharts.17.1.3\lib\net40\DevExpress.XtraCharts.v17.2.dll</HintPath>
+    <Reference Include="DevExpress.XtraCharts.v18.1">
+      <HintPath>..\packages\DevExpress.XtraCharts.17.1.3\lib\net40\DevExpress.XtraCharts.v18.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.v17.2.Extensions">
-      <HintPath>..\packages\DevExpress.XtraCharts.17.1.3\lib\net40\DevExpress.XtraCharts.v17.2.Extensions.dll</HintPath>
+    <Reference Include="DevExpress.XtraCharts.v18.1.Extensions">
+      <HintPath>..\packages\DevExpress.XtraCharts.17.1.3\lib\net40\DevExpress.XtraCharts.v18.1.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.v17.2.UI">
-      <HintPath>..\packages\DevExpress.XtraCharts.17.1.3\lib\net40\DevExpress.XtraCharts.v17.2.UI.dll</HintPath>
+    <Reference Include="DevExpress.XtraCharts.v18.1.UI">
+      <HintPath>..\packages\DevExpress.XtraCharts.17.1.3\lib\net40\DevExpress.XtraCharts.v18.1.UI.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.v17.2.Wizard">
-      <HintPath>..\packages\DevExpress.XtraCharts.17.1.3\lib\net40\DevExpress.XtraCharts.v17.2.Wizard.dll</HintPath>
+    <Reference Include="DevExpress.XtraCharts.v18.1.Wizard">
+      <HintPath>..\packages\DevExpress.XtraCharts.17.1.3\lib\net40\DevExpress.XtraCharts.v18.1.Wizard.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraDiagram.v17.2">
-      <HintPath>..\packages\DevExpress.XtraDiagram.17.1.3\lib\net40\DevExpress.XtraDiagram.v17.2.dll</HintPath>
+    <Reference Include="DevExpress.XtraDiagram.v18.1">
+      <HintPath>..\packages\DevExpress.XtraDiagram.17.1.3\lib\net40\DevExpress.XtraDiagram.v18.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraEditors.v17.2">
-      <HintPath>..\packages\DevExpress.XtraEditors.17.1.3\lib\net40\DevExpress.XtraEditors.v17.2.dll</HintPath>
+    <Reference Include="DevExpress.XtraEditors.v18.1">
+      <HintPath>..\packages\DevExpress.XtraEditors.17.1.3\lib\net40\DevExpress.XtraEditors.v18.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraGauges.v17.2.Core">
-      <HintPath>..\packages\DevExpress.XtraGauges.Core.17.1.3\lib\net40\DevExpress.XtraGauges.v17.2.Core.dll</HintPath>
+    <Reference Include="DevExpress.XtraGauges.v18.1.Core">
+      <HintPath>..\packages\DevExpress.XtraGauges.Core.17.1.3\lib\net40\DevExpress.XtraGauges.v18.1.Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraGrid.v17.2">
-      <HintPath>..\packages\DevExpress.XtraEditors.17.1.3\lib\net40\DevExpress.XtraGrid.v17.2.dll</HintPath>
+    <Reference Include="DevExpress.XtraGrid.v18.1">
+      <HintPath>..\packages\DevExpress.XtraEditors.17.1.3\lib\net40\DevExpress.XtraGrid.v18.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraLayout.v17.2">
-      <HintPath>..\packages\DevExpress.XtraEditors.17.1.3\lib\net40\DevExpress.XtraLayout.v17.2.dll</HintPath>
+    <Reference Include="DevExpress.XtraLayout.v18.1">
+      <HintPath>..\packages\DevExpress.XtraEditors.17.1.3\lib\net40\DevExpress.XtraLayout.v18.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraNavBar.v17.2">
-      <HintPath>..\packages\DevExpress.XtraEditors.17.1.3\lib\net40\DevExpress.XtraNavBar.v17.2.dll</HintPath>
+    <Reference Include="DevExpress.XtraNavBar.v18.1">
+      <HintPath>..\packages\DevExpress.XtraEditors.17.1.3\lib\net40\DevExpress.XtraNavBar.v18.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraPivotGrid.v17.2">
-      <HintPath>..\packages\DevExpress.XtraPivotGrid.17.1.3\lib\net40\DevExpress.XtraPivotGrid.v17.2.dll</HintPath>
+    <Reference Include="DevExpress.XtraPivotGrid.v18.1">
+      <HintPath>..\packages\DevExpress.XtraPivotGrid.17.1.3\lib\net40\DevExpress.XtraPivotGrid.v18.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraPrinting.v17.2">
-      <HintPath>..\packages\DevExpress.XtraEditors.17.1.3\lib\net40\DevExpress.XtraPrinting.v17.2.dll</HintPath>
+    <Reference Include="DevExpress.XtraPrinting.v18.1">
+      <HintPath>..\packages\DevExpress.XtraEditors.17.1.3\lib\net40\DevExpress.XtraPrinting.v18.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraReports.v17.2">
-      <HintPath>..\packages\DevExpress.XtraReports.17.1.3\lib\net40\DevExpress.XtraReports.v17.2.dll</HintPath>
+    <Reference Include="DevExpress.XtraReports.v18.1">
+      <HintPath>..\packages\DevExpress.XtraReports.17.1.3\lib\net40\DevExpress.XtraReports.v18.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraReports.v17.2.Extensions">
-      <HintPath>..\packages\DevExpress.XtraReports.17.1.3\lib\net40\DevExpress.XtraReports.v17.2.Extensions.dll</HintPath>
+    <Reference Include="DevExpress.XtraReports.v18.1.Extensions">
+      <HintPath>..\packages\DevExpress.XtraReports.17.1.3\lib\net40\DevExpress.XtraReports.v18.1.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraRichEdit.v17.2">
-      <HintPath>..\packages\DevExpress.XtraRichEdit.17.1.3\lib\net40\DevExpress.XtraRichEdit.v17.2.dll</HintPath>
+    <Reference Include="DevExpress.XtraRichEdit.v18.1">
+      <HintPath>..\packages\DevExpress.XtraRichEdit.17.1.3\lib\net40\DevExpress.XtraRichEdit.v18.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraRichEdit.v17.2.Extensions">
-      <HintPath>..\packages\DevExpress.XtraRichEdit.17.1.3\lib\net40\DevExpress.XtraRichEdit.v17.2.Extensions.dll</HintPath>
+    <Reference Include="DevExpress.XtraRichEdit.v18.1.Extensions">
+      <HintPath>..\packages\DevExpress.XtraRichEdit.17.1.3\lib\net40\DevExpress.XtraRichEdit.v18.1.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraTreeList.v17.2">
-      <HintPath>..\packages\DevExpress.XtraEditors.17.1.3\lib\net40\DevExpress.XtraTreeList.v17.2.dll</HintPath>
+    <Reference Include="DevExpress.XtraTreeList.v18.1">
+      <HintPath>..\packages\DevExpress.XtraEditors.17.1.3\lib\net40\DevExpress.XtraTreeList.v18.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraVerticalGrid.v17.2">
-      <HintPath>..\packages\DevExpress.XtraEditors.17.1.3\lib\net40\DevExpress.XtraVerticalGrid.v17.2.dll</HintPath>
+    <Reference Include="DevExpress.XtraVerticalGrid.v18.1">
+      <HintPath>..\packages\DevExpress.XtraEditors.17.1.3\lib\net40\DevExpress.XtraVerticalGrid.v18.1.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
