@@ -1,1 +1,1 @@
-msbuild build.proj /t:NuGet /p:DXReferencePath=c:\DevExpress\17.1.3\Bin\Framework /p:SenDevReferencePath=c:\Sergey\DotNet\DevExpressBuild\bin\Debug
+msbuild build.proj /t:NuGet /p:DXReferencePath=c:\DevExpress\18.1.4.71\Bin\Framework /p:SenDevReferencePath=c:\Sergey\DotNet\DevExpressBuild\bin\Debug
