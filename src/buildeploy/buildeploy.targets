@@ -60,6 +60,18 @@
      TaskName="Cms.Buildeploy.Tasks.SqlServerDropDatabase"
      AssemblyFile="$(BuildeployTasksAssemblyFile)" />
 
+  <UsingTask
+        TaskName="Cms.Buildeploy.Tasks.SetVersionFromGitTag"
+        AssemblyFile="$(BuildeployTasksAssemblyFile)" />
+
+  <UsingTask
+        TaskName="Cms.Buildeploy.Tasks.WriteTextFile"
+        AssemblyFile="$(BuildeployTasksAssemblyFile)" />
+
+  <UsingTask
+        TaskName="Cms.Buildeploy.Tasks.MakeDirAndRenameExisting"
+        AssemblyFile="$(BuildeployTasksAssemblyFile)" />
+
   <Target Name="Configurations">
     <CreateItem Include="$(TargetConfigurations)">
       <Output TaskParameter="Include" ItemName="Configuration" />
@@ -72,14 +84,11 @@
   <Target Name="DeleteLicxFiles">
     <DeleteLicxFiles ProjectFiles="@(ProjectToBuild -> '%(fullpath)')"/>
   </Target>
-  
+
   <Target Name="Build"
         DependsOnTargets="Configurations;NugetRestore"
         Inputs="@(Configuration)"
         Outputs="target\%(Configuration.FileName)">
-
-
-
 
     <CallTarget Targets="BeforeBuild"/>
 
@@ -270,7 +279,7 @@
     <PropertyGroup>
       <NoCacheOption Condition="$(NugetRestoreNoCache)==true">-NoCache</NoCacheOption>
     </PropertyGroup>
-    <Exec Command="$(NugetExe) restore %(PackagesConfig.FullPath) -Source $(NugetPackagesSource) -PackagesDirectory $(MSBuildProjectDirectory)\packages $(NoCacheOption)"
+    <Exec Command="$(NugetExe) restore %(PackagesConfig.FullPath) -Recursive -Source $(NugetPackagesSource) -PackagesDirectory $(MSBuildProjectDirectory)\packages $(NoCacheOption)"
           Condition="Exists(%(PackagesConfig.FullPath))"/>
   </Target>
 
@@ -346,17 +355,30 @@
       <Output TaskParameter="Pattern" PropertyName="BuildVersionPattern"/>
     </GenerateVersionPattern>
 
-    <ChangeVersion Files="@(VersionFile)" Version="$(BuildVersionPattern)" Condition="$(BuildVersionPattern)!=''">
+    <ChangeVersion Files="@(VersionFile)" Version="$(BuildVersionPattern)" Condition="$(UseVersionFromGitTag)!=true and $(BuildVersionPattern)!=''">
       <Output TaskParameter="NewVersion" PropertyName="Version"/>
     </ChangeVersion>
 
-    <ChangeVersion Files="@(VersionFile)" Version="$(VersionPattern)" Condition="$(BuildVersionPattern)==''">
+    <ChangeVersion Files="@(VersionFile)" Version="$(VersionPattern)" Condition="$(UseVersionFromGitTag)!=true and $(BuildVersionPattern)==''">
       <Output TaskParameter="NewVersion" PropertyName="Version"/>
     </ChangeVersion>
 
+    <SetVersionFromGitTag
+      Files="@(VersionFile)"
+      MasterVersionPattern="$(MasterVersionPattern)"
+      HotFixVersionPattern="$(HotfixVersionPattern)"
+      Condition="$(UseVersionFromGitTag)==true AND $(MasterVersionPattern)!=''">
+      
+      <Output TaskParameter="NewVersion" PropertyName="Version"/>
+      <Output TaskParameter="BuildTag" PropertyName="BuildTagName" />
+      <Output TaskParameter="ReleaseNotes" PropertyName="ReleaseNotes" />
+
+    </SetVersionFromGitTag>
     <GetGitBranchName>
       <Output TaskParameter ="BranchName" PropertyName="BranchName"/>
     </GetGitBranchName>
+
+    <Message Text="##teamcity[setParameter name='buildtagname' value='$(BuildTagName)']"  Importance="high"/>
 
 
 
@@ -367,6 +389,7 @@
       <VersionRedistRoot Condition="$(DefaultVersionRedistRoot)!=''">$(DefaultVersionRedistRoot)</VersionRedistRoot>
       <VersionRedistRoot Condition="$(DefaultVersionRedistRoot)==''">$(RedistRoot)\$(BuildDefinition)\$(SemVersion)</VersionRedistRoot>
     </PropertyGroup>
+    <Message Text="##teamcity[setParameter name='VersionRedistRoot' value='$(VersionRedistRoot)']"  Importance="high"/>
 
     <RemoveDir Directories="$(TempRedistRoot)"/>
     <CallTarget Targets="DeleteLicxFiles" Condition="$(SkipBuild) != true"/>
@@ -382,8 +405,9 @@
       WorkingDirectory="bin\$(RedistConfiguration)"
       Category="$(MSTestCategory)"/>
 
+    <CallTarget Targets="RunUnitTests"/>
     <CallTarget Targets="RunMSTestMultipleProcesses" Condition="$(MSTestMultiProcess)==true"/>
-    <ResolveRedistAssemblies Files="@(ClientRedistFile)" LookUpPath="$(CompileOutput)">
+    <ResolveRedistAssemblies Files="@(ClientRedistFile)" LookUpPath="$(CompileOutput)" >
       <Output TaskParameter="Result" ItemName="RedistPath"/>
     </ResolveRedistAssemblies>
 
@@ -398,8 +422,7 @@
     <Copy SourceFiles="@(ClientLibDependencyPath)" DestinationFolder="$(TempClientRedist)"/>
     <Copy SourceFiles="@(RedistWithTargetPath)" DestinationFiles = "@(RedistWithTargetPath->'$(TempClientRedist)\%(TargetPath)')"/>
     <Copy SourceFiles="@(ClientDependency)" DestinationFolder="$(TempClientRedist)"/>
-    <CallTarget Targets="CopyLocalizationFiles" />
-
+    <Copy SourceFiles="$(DefaultClientConfigFile)" DestinationFiles="$(TempClientRedist)\$(ClickOnceEntryPoint).config" Condition="$(DefaultClientConfigFile)!='' AND $(ClickOnceEntryPoint)!=''"/>
     <CheckReferences Path="$(TempClientRedist)" MessageInfo="Client" Excludes="@(CheckReferenceExclude)"/>
     <MakeDir Directories="$(TempServerRedist)"/>
 
@@ -407,9 +430,10 @@
     <Copy SourceFiles="@(ServerRedistPath)" DestinationFolder="$(TempServerRedist)"/>
     <Copy SourceFiles="@(ServerDependency)" DestinationFolder="$(TempServerRedist)"/>
     <Copy SourceFiles="@(ServerLibDependencyPath)" DestinationFolder="$(TempServerRedist)"/>
-
+  
     <CheckReferences Path="$(TempServerRedist)" MessageInfo="Server" Excludes="@(CheckReferenceExclude)"/>
-    <MakeDir Directories="$(VersionRedistRoot)"/>
+    <MakeDirAndRenameExisting DirectoryName="$(VersionRedistRoot)" Prefix="failed" Condition="$(IgnoreExistingRedistRoot)!=true" />
+    <WriteTextFile FileName="$(VersionRedistRoot)\releasenotes-$(Version).txt" Text="$(ReleaseNotes)" Condition="$(ReleaseNotes)!=''"/>
     <ItemGroup>
       <ClientRedistFiles Include="$(TempClientRedist)\**"/>
       <ServerRedistFiles Include="$(TempServerRedist)\**"/>
@@ -417,23 +441,27 @@
     </ItemGroup>
 
     <Copy SourceFiles="@(RedistFiles)" DestinationFolder="$(VersionRedistRoot)\%(RecursiveDir)"/>
-    <Zip Files="@(ClientRedistFiles)" WorkingDirectory="$(TempClientRedist)" ZipFileName="$(VersionRedistRoot)\Client-v$(SemVersion).zip" />
-    <Zip Files="@(ServerRedistFiles)" WorkingDirectory="$(TempServerRedist)" ZipFileName="$(VersionRedistRoot)\Server-v$(SemVersion).zip" />
+    <Zip Files="@(ClientRedistFiles)" WorkingDirectory="$(TempClientRedist)" ZipFileName="$(VersionRedistRoot)\$(RedistArchivePrefix)Client-v$(SemVersion).zip" Condition="@(ClientRedistFiles)!=''" />
+    <Zip Files="@(ServerRedistFiles)" WorkingDirectory="$(TempServerRedist)" ZipFileName="$(VersionRedistRoot)\$(RedistArchivePrefix)Server-v$(SemVersion).zip" Condition="@(ServerRedistFiles)!=''"/>
 
 
-    <Zip Files="@(PdbFiles)" WorkingDirectory="$(CompileOutput)" ZipFileName="$(VersionRedistRoot)\Symbols-v$(SemVersion).zip" />
+    <Zip Files="@(PdbFiles)" WorkingDirectory="$(CompileOutput)" ZipFileName="$(VersionRedistRoot)\$(RedistArchivePrefix)Symbols-v$(SemVersion).zip" Condition="@(PdbFiles) != ''" />
 
 
   </Target>
 
   <Target Name="RedistProjects">
     <MSBuild Projects="@(RedistProject)"
-            Properties="Configuration=%(Configuration.Identity);ReferencePath=$(LibraryReferencePath)&#59;$(LibraryReferencePathSL);NugetExe=$(NugetExe);SkipBuild=True;RedistRoot=$(RedistRoot);VersionPattern=*.*.*.*;BuildDefinition=$(BuildDefinition);UseBranchNameForVersionTag=$(UseBranchNameForVersionTag);BranchName=$(BranchName)"
+            Properties="Configuration=%(Configuration.Identity);ReferencePath=$(LibraryReferencePath)&#59;$(LibraryReferencePathSL);NugetExe=$(NugetExe);SkipBuild=True;RedistRoot=$(RedistRoot);VersionPattern=*.*.*.*;BuildDefinition=$(BuildDefinition);UseBranchNameForVersionTag=$(UseBranchNameForVersionTag);BranchName=$(BranchName);IgnoreExistingRedistRoot=true"
              StopOnFirstFailure="true" ToolsVersion="$(ToolsVersion)"  Targets="RedistBinaries;PrecompileWeb;OctoPackage;OctoDeploy;ClickOnce;"/>
   </Target>
   <Target Name="AfterWebsiteCompiled" />
+  <Target Name="RunUnitTests" />
   <Target Name="PrecompileWeb"  Condition="$(WebsiteSource)!=''">
 
+    <PropertyGroup>
+      <CompileOutput>$(MSBuildProjectDirectory)\bin\$(RedistConfiguration)\</CompileOutput>
+    </PropertyGroup>
     <Error Condition="$(VersionRedistRoot)==''" Text="Property 'VersionRedistRoot' is not specified."/>
 
     <RemoveDir Directories="$(CompiledSite)"/>
@@ -460,7 +488,7 @@
         TargetPath="$(CompiledSite)"
         Debug="true"
         FixedNames="true"
-	      Updateable="false"
+        Updateable="false"
         />
     <Message Text="WebSiteCompileExclude: @(WebSiteCompileExclude)" />
     <Delete Files="@(WebsiteCompileExclude)"/>
@@ -468,8 +496,9 @@
 
     <Copy SourceFiles="@(TempLocalizationFile)" DestinationFolder="$(CompiledSite)\bin\%(RecursiveDir)"/>
     <CallTarget Targets="AfterWebsiteCompiled"/>
+    <CallTarget Targets="RunUnitTests"/>
 
-    <CheckReferences Path="$(WebSiteSource)\bin" MessageInfo="Website" Excludes="@(CheckReferenceExclude)"/>
+    <CheckReferences Path="$(WebSiteSource)\bin" MessageInfo="Website" Excludes="@(CheckReferenceExclude)" Condition="$(WebSiteSource)!=''"/>
     <ItemGroup>
       <CompiledSite Include="$(CompiledSite)\**\*.*" Exclude="$(CompiledSite)\**\*.csproj;$(CompiledSite)\**\*.user;$(CompiledSite)\obj\**;$(CompiledSite)\**\web*.config;$(CompiledSite)\**\*.snk;$(CompiledSite)\**\*.log" />
     </ItemGroup>
