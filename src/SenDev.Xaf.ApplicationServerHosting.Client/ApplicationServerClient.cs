@@ -116,7 +116,16 @@ namespace SenDev.Xaf.ApplicationServerHosting
 
         public bool InitializeApplication(XafApplication application)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            const string defaultConnectionStringName = "ConnectionString";
+            ConnectionStringSettings connectionStringSetting = ConfigurationManager.ConnectionStrings[defaultConnectionStringName];
+            if (connectionStringSetting == null)
+                throw new InvalidOperationException($"Connection string '{defaultConnectionStringName}' not found.");
+
+            return InitializeApplication(application, connectionStringSetting.ConnectionString);
+        }
+        public bool InitializeApplication(XafApplication application, string connectionString)
+        {
+            
             var uri = TryCreateUri(connectionString);
             if (uri == null)
                 return false;
