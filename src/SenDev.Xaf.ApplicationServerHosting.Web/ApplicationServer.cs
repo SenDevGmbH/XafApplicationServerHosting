@@ -361,7 +361,7 @@ namespace SenDev.Xaf.ApplicationServerHosting.Web
         }
 
 
-        protected static string ConnectionStringName { get; set; } = "ConnectionString";
+        public static string ConnectionStringName { get; set; } = "ConnectionString";
 
         private WcfSecuredDataServer Server
         {
