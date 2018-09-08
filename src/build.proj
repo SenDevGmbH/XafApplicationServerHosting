@@ -20,12 +20,12 @@
     <ProjectToBuild Include="build-core.proj"/>
 
 	<PackageConfig Include="SenDev">
-		<ReferencePath>$(SenDevReferencePath)</ReferencePath>
+		<ReferencePath>$(SenDevReferencePath)\$(DevExpressVersion)</ReferencePath>
 		<NuspecDir>nuspec\SenDev</NuspecDir>
 	</PackageConfig>
 	
 	<PackageConfig Include="DX">	
-		<ReferencePath>$(DXReferencePath)</ReferencePath>
+		<ReferencePath>$(DXReferencePath)\$(DevExpressVersion)\bin\Framework</ReferencePath>
 		<NuspecDir>nuspec\DX</NuspecDir>
 	</PackageConfig>
 
