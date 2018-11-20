@@ -39,11 +39,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.v18.1">
-      <HintPath>..\..\..\..\DevExpress\18.1.4.71\Bin\Framework\DevExpress.Data.v18.1.dll</HintPath>
+    <Reference Include="DevExpress.Data.v18.2">
+      <HintPath>..\..\..\..\DevExpress\18.1.4.71\Bin\Framework\DevExpress.Data.v18.2.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Xpo.v18.1">
-      <HintPath>..\..\..\..\DevExpress\18.1.4.71\Bin\Framework\DevExpress.Xpo.v18.1.dll</HintPath>
+    <Reference Include="DevExpress.Xpo.v18.2">
+      <HintPath>..\..\..\..\DevExpress\18.1.4.71\Bin\Framework\DevExpress.Xpo.v18.2.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.1.3.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>

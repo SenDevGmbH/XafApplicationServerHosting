@@ -3,7 +3,7 @@
   <PropertyGroup>
 	<ProjectName>XpoSync</ProjectName>
 	<OutputRoot>bin\</OutputRoot>
-	<DevExpressVersion>18.1.7</DevExpressVersion>
+	<DevExpressVersion>18.2.3</DevExpressVersion>
     <NuGetTool>.nuget\NuGet.exe</NuGetTool>
 	<ClickOnceTargetFramework>.NET Framework, Version=4.5.2</ClickOnceTargetFramework>
     <RedistConfiguration>Debug</RedistConfiguration>
