@@ -60,6 +60,10 @@
     <Reference Include="DevExpress.ExpressApp.Security.v18.2">
       <HintPath>..\packages\DevExpress.ExpressApp.Security.18.1.4.71\lib\net40\DevExpress.ExpressApp.Security.v18.2.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.ExpressApp.Security.Xpo.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=8f2823b07f50ed12, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\DevExpressBuild-18.2\Bin\Debug\DevExpress.ExpressApp.Security.Xpo.v18.2.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.ExpressApp.v18.2">
       <HintPath>..\packages\DevExpress.ExpressApp.18.1.4.71\lib\net40\DevExpress.ExpressApp.v18.2.dll</HintPath>
     </Reference>

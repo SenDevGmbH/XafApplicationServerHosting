@@ -3,6 +3,7 @@ using System;
 using System.Runtime.Caching;
 using System.Text;
 using DevExpress.ExpressApp;
+using DevExpress.ExpressApp.Security;
 
 namespace SenDev.Xaf.ApplicationServerHosting.Web
 {
