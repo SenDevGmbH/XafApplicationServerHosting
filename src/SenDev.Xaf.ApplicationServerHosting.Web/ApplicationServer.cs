@@ -36,7 +36,7 @@ namespace SenDev.Xaf.ApplicationServerHosting.Web
         public static event EventHandler<CustomCreateXPDictionaryEventArgs> CustomCreateXPDictionary;
         public static event EventHandler<CustomCreateDataLayerEventArgs> CustomCreateDataLayer;
 
-        
+
         static ApplicationServer()
         {
             EnsureValueManager();
@@ -256,158 +256,163 @@ namespace SenDev.Xaf.ApplicationServerHosting.Web
             set;
         }
 
+        public static bool UseDataStorePool {get;set;} = true;
+
         public static Type RoleType
-        {
-            get;
-            set;
-        }
-
-        public static Type WebApplicationType
-        {
-            get;
-            set;
-        }
-
-        public static void EnsureValueManager()
-        {
-            var valueManagerType = typeof(HybridValueManager<>).GetGenericTypeDefinition();
-            if (ValueManager.ValueManagerType != valueManagerType)
-                ValueManager.ValueManagerType = valueManagerType;
-        }
-
-        private static IDataStore dataStore;
-        private static IDataServer CreateDataServer()
-        {
-            EnsureWebApplicationInitialized();
-            QueryRequestSecurityStrategyHandler securityProviderHandler = delegate ()
-            {
-                AuthenticationBase authentication;
-                if (AuthenticationCreator != null)
-                    authentication = AuthenticationCreator();
-                else
-                    authentication = new AuthenticationStandard();
-                var security = CreateDataServerSecurity(authentication);
-                SecurityHelper.AttachRequestProcessors(security);
-                return security;
-            };
-
-            dataStore = dataStore ?? CreateDataStore();
-            IDataLayer dataLayer = CreateDataLayer();
-
-            var securityStrategyProvider = new CachingRequestSecurityStrategyProvider(new SecuredDataServer.RequestSecurityStrategyProvider(dataLayer, securityProviderHandler));
-            IServerSecurity serverSecurity = CreateDefaultServerSecurity(securityStrategyProvider);
-            ISecuredSerializableObjectLayer objectLayer = CreateDefaultSecuredSerializableObjectLayer(dataLayer, securityStrategyProvider);
-            return new SecuredDataServer(serverSecurity, objectLayer);
-        }
-
-        private static IDataLayer CreateDataLayer()
-        {
-            XPDictionary dictionary = CreateDictionary();
-            CustomCreateDataLayerEventArgs args = new CustomCreateDataLayerEventArgs(dictionary, dataStore);
-            CustomCreateDataLayer?.Invoke(null, args);
-
-            return args.DataLayer ?? (UseThreadSafeDataLayer ?
-                            (IDataLayer)new ThreadSafeDataLayer(dictionary, dataStore) :
-                            new SimpleDataLayer(dictionary, dataStore));
-        }
-
-        private static DevExpress.Xpo.Metadata.XPDictionary CreateDictionary()
-        {
-            CustomCreateXPDictionaryEventArgs args = new CustomCreateXPDictionaryEventArgs();
-            CustomCreateXPDictionary?.Invoke(null, args);
-            return args.Dictionary ?? XpoTypesInfoHelper.GetXpoTypeInfoSource().XPDictionary;
-        }
-
-
-        private static IDataServerSecurity CreateDataServerSecurity(AuthenticationBase authentication)
-        {
-            CustomCreateDataServerSecurityEventArgs args = new CustomCreateDataServerSecurityEventArgs
-            {
-                UserType = UserType ?? typeof(SecuritySystemUser),
-                RoleType = RoleType ?? typeof(SecuritySystemRole),
-                Authentication = authentication
-            };
-
-            CustomCreateDataServerSecurity?.Invoke(null, args);
-
-            return args.Security ?? new SecurityStrategyComplex(args.UserType, args.RoleType, authentication);
-        }
-
-        private static IDataStore CreateDataStore()
-        {
-
-            var handler = CustomCreateDataStore;
-            if (handler != null)
-            {
-                CustomCreateDataStoreEventArgs args = new CustomCreateDataStoreEventArgs();
-
-                handler(null, args);
-                if (args.DataStore != null)
-                    return args.DataStore;
-            }
-
-            IDisposable[] objectsToDispose;
-            return new MSSqlProviderFactory().CreateProviderFromString(GetConnectionString(), AutoCreateOption.SchemaAlreadyExists, out objectsToDispose);
-        }
-
-        private static ISecuredSerializableObjectLayer CreateDefaultSecuredSerializableObjectLayer(IDataLayer dataLayer, IRequestSecurityStrategyProvider securityStrategyProvider)
-        {
-            return new SecuredSerializableObjectLayer(dataLayer, securityStrategyProvider, false);
-        }
-
-        private static IServerSecurity CreateDefaultServerSecurity(IRequestSecurityStrategyProvider securityStrategyProvider)
-        {
-            return new ServerSecurity(securityStrategyProvider);
-        }
-
-
-        public static string ConnectionStringName { get; set; } = "ConnectionString";
-
-        private WcfSecuredDataServer Server
-        {
-            get
-            {
-                if (server == null)
-                {
-                    server = new WcfSecuredDataServer(CreateDataServer());
-                }
-                return server;
-            }
-        }
-
-        internal static string GetConnectionString()
-        {
-            return ConfigurationManager.ConnectionStrings[ConnectionStringName].ConnectionString;
-        }
-
-        public static void RegisterServerSideMethods(Type methodsInterface, Type implementor)
-        {
-
-            if (methodsInterface == null)
-                throw new ArgumentNullException(nameof(methodsInterface));
-
-            if (implementor == null)
-                throw new ArgumentNullException(nameof(implementor));
-
-            foreach (var methodInfo in methodsInterface.GetMethods(BindingFlags.Public | BindingFlags.Instance))
-            {
-                RegisterCustomCommand(methodsInterface.FullName + methodInfo.Name, (ci, p) => ExecuteServerSideMethod(implementor, methodInfo, p));
-            }
-        }
-
-        private static object ExecuteServerSideMethod(Type implementorType, MethodInfo methodInfo, object parameter)
-        {
-            object[] parameters;
-            bool binarySerialization = methodInfo.DeclaringType.GetCustomAttribute<BinarySerializationAttribute>() != null;
-            if (parameter != null && binarySerialization)
-                parameters = SerializationUtils.BinaryDeserialize<object[]>((byte[])parameter);
-            else
-                parameters = parameter as object[];
-
-            if (parameters == null) parameters = new[] { parameter };
-            var result = methodInfo.Invoke(Activator.CreateInstance(implementorType, GetConnectionString()), parameters);
-            return binarySerialization ? SerializationUtils.BinarySerialize(result) : result;
-        }
-
+    {
+        get;
+        set;
     }
+
+    public static Type WebApplicationType
+    {
+        get;
+        set;
+    }
+
+    public static void EnsureValueManager()
+    {
+        var valueManagerType = typeof(HybridValueManager<>).GetGenericTypeDefinition();
+        if (ValueManager.ValueManagerType != valueManagerType)
+            ValueManager.ValueManagerType = valueManagerType;
+    }
+
+    private static IDataStore dataStore;
+    private static IDataServer CreateDataServer()
+    {
+        EnsureWebApplicationInitialized();
+        QueryRequestSecurityStrategyHandler securityProviderHandler = delegate ()
+        {
+            AuthenticationBase authentication;
+            if (AuthenticationCreator != null)
+                authentication = AuthenticationCreator();
+            else
+                authentication = new AuthenticationStandard();
+            var security = CreateDataServerSecurity(authentication);
+            SecurityHelper.AttachRequestProcessors(security);
+            return security;
+        };
+
+        dataStore = dataStore ?? CreateDataStore();
+        IDataLayer dataLayer = CreateDataLayer();
+
+        var securityStrategyProvider = new CachingRequestSecurityStrategyProvider(new SecuredDataServer.RequestSecurityStrategyProvider(dataLayer, securityProviderHandler));
+        IServerSecurity serverSecurity = CreateDefaultServerSecurity(securityStrategyProvider);
+        ISecuredSerializableObjectLayer objectLayer = CreateDefaultSecuredSerializableObjectLayer(dataLayer, securityStrategyProvider);
+        return new SecuredDataServer(serverSecurity, objectLayer);
+    }
+
+    private static IDataLayer CreateDataLayer()
+    {
+        XPDictionary dictionary = CreateDictionary();
+        CustomCreateDataLayerEventArgs args = new CustomCreateDataLayerEventArgs(dictionary, dataStore);
+        CustomCreateDataLayer?.Invoke(null, args);
+
+        return args.DataLayer ?? (UseThreadSafeDataLayer ?
+                        (IDataLayer)new ThreadSafeDataLayer(dictionary, dataStore) :
+                        new SimpleDataLayer(dictionary, dataStore));
+    }
+
+    private static DevExpress.Xpo.Metadata.XPDictionary CreateDictionary()
+    {
+        CustomCreateXPDictionaryEventArgs args = new CustomCreateXPDictionaryEventArgs();
+        CustomCreateXPDictionary?.Invoke(null, args);
+        return args.Dictionary ?? XpoTypesInfoHelper.GetXpoTypeInfoSource().XPDictionary;
+    }
+
+
+    private static IDataServerSecurity CreateDataServerSecurity(AuthenticationBase authentication)
+    {
+        CustomCreateDataServerSecurityEventArgs args = new CustomCreateDataServerSecurityEventArgs
+        {
+            UserType = UserType ?? typeof(SecuritySystemUser),
+            RoleType = RoleType ?? typeof(SecuritySystemRole),
+            Authentication = authentication
+        };
+
+        CustomCreateDataServerSecurity?.Invoke(null, args);
+
+        return args.Security ?? new SecurityStrategyComplex(args.UserType, args.RoleType, authentication);
+    }
+
+    private static IDataStore CreateDataStore()
+    {
+
+        var handler = CustomCreateDataStore;
+        if (handler != null)
+        {
+            CustomCreateDataStoreEventArgs args = new CustomCreateDataStoreEventArgs();
+
+            handler(null, args);
+            if (args.DataStore != null)
+                return args.DataStore;
+        }
+
+            string connectionString = GetConnectionString();
+            if (UseDataStorePool)
+                connectionString = XpoDefault.GetConnectionPoolString(connectionString);
+
+            return XpoDefault.GetConnectionProvider(connectionString, AutoCreateOption.SchemaAlreadyExists);
+    }
+
+    private static ISecuredSerializableObjectLayer CreateDefaultSecuredSerializableObjectLayer(IDataLayer dataLayer, IRequestSecurityStrategyProvider securityStrategyProvider)
+    {
+        return new SecuredSerializableObjectLayer(dataLayer, securityStrategyProvider, false);
+    }
+
+    private static IServerSecurity CreateDefaultServerSecurity(IRequestSecurityStrategyProvider securityStrategyProvider)
+    {
+        return new ServerSecurity(securityStrategyProvider);
+    }
+
+
+    public static string ConnectionStringName { get; set; } = "ConnectionString";
+
+    private WcfSecuredDataServer Server
+    {
+        get
+        {
+            if (server == null)
+            {
+                server = new WcfSecuredDataServer(CreateDataServer());
+            }
+            return server;
+        }
+    }
+
+    internal static string GetConnectionString()
+    {
+        return ConfigurationManager.ConnectionStrings[ConnectionStringName].ConnectionString;
+    }
+
+    public static void RegisterServerSideMethods(Type methodsInterface, Type implementor)
+    {
+
+        if (methodsInterface == null)
+            throw new ArgumentNullException(nameof(methodsInterface));
+
+        if (implementor == null)
+            throw new ArgumentNullException(nameof(implementor));
+
+        foreach (var methodInfo in methodsInterface.GetMethods(BindingFlags.Public | BindingFlags.Instance))
+        {
+            RegisterCustomCommand(methodsInterface.FullName + methodInfo.Name, (ci, p) => ExecuteServerSideMethod(implementor, methodInfo, p));
+        }
+    }
+
+    private static object ExecuteServerSideMethod(Type implementorType, MethodInfo methodInfo, object parameter)
+    {
+        object[] parameters;
+        bool binarySerialization = methodInfo.DeclaringType.GetCustomAttribute<BinarySerializationAttribute>() != null;
+        if (parameter != null && binarySerialization)
+            parameters = SerializationUtils.BinaryDeserialize<object[]>((byte[])parameter);
+        else
+            parameters = parameter as object[];
+
+        if (parameters == null) parameters = new[] { parameter };
+        var result = methodInfo.Invoke(Activator.CreateInstance(implementorType, GetConnectionString()), parameters);
+        return binarySerialization ? SerializationUtils.BinarySerialize(result) : result;
+    }
+
+}
 }
