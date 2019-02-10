@@ -23,16 +23,24 @@ namespace SenDev.Xaf.ApplicationServerHosting
             ClientCredentials.Windows.AllowedImpersonationLevel = TokenImpersonationLevel.Impersonation;
         }
 
+
+        public bool EnableLogging { get; set; }
+
         private T ExecuteWithLog<T>(Func<T> operation, string logText, [CallerMemberName] string methodName = null)
         {
 
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
-            T result = operation();
-            sw.Stop();
-            int objectsCount = GetObjectsCount(result);
-            Trace.TraceInformation($"{sw.Elapsed} ({objectsCount}): Service call to {methodName}({logText})");
-            return result;
+            if (EnableLogging)
+            {
+                Stopwatch sw = new Stopwatch();
+                sw.Start();
+                T result = operation();
+                sw.Stop();
+                int objectsCount = GetObjectsCount(result);
+                Trace.TraceInformation($"{sw.Elapsed} ({objectsCount}): Service call to {methodName}({logText})");
+                return result;
+            }
+            else
+                return operation();
         }
 
         private int GetObjectsCount<T>(T result)
