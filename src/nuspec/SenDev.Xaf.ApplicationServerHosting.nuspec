@@ -13,8 +13,8 @@
     <tags>DevExpress XAF eXpressApplicationFramework</tags>
   </metadata>
   <files>
-    <file src="$SourceDir$\SenDev.Xaf.ApplicationServerHosting.dll" target="lib\net40" />
-	<file src="$SourceDir$\SenDev.Xaf.ApplicationServerHosting.pdb" target="lib\net40" />
-	<file src="$SourceDir$\..\..\SenDev.Xaf.ApplicationServerHosting\**\*.cs" target="src\SenDev.Xaf.ApplicationServerHosting" />
+    <file src="$SourceDir$SenDev.Xaf.ApplicationServerHosting.dll" target="lib\net40" />
+	<file src="$SourceDir$SenDev.Xaf.ApplicationServerHosting.pdb" target="lib\net40" />
+	<file src="$SourceDir$..\..\SenDev.Xaf.ApplicationServerHosting\**\*.cs" target="src\SenDev.Xaf.ApplicationServerHosting" />
   </files>
 </package>
