@@ -39,93 +39,93 @@
     <AssemblyOriginatorKeyFile>SenDev.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.BonusSkins.$(DevExpressVersion)">
-      <HintPath>..\packages\DevExpress.BonusSkins.18.1.4.71\lib\net40\DevExpress.BonusSkins.$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.BonusSkins.v$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.BonusSkins.18.1.4.71\lib\net40\DevExpress.BonusSkins.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Charts.$(DevExpressVersion).Core">
-      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.Charts.$(DevExpressVersion).Core.dll</HintPath>
+    <Reference Include="DevExpress.Charts.v$(DevExpressVersion).Core">
+      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.Charts.v$(DevExpressVersion).Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.CodeParser.$(DevExpressVersion)">
+    <Reference Include="DevExpress.CodeParser.v$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.Data.$(DevExpressVersion)">
+    <Reference Include="DevExpress.Data.v$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.DataAccess.$(DevExpressVersion)">
+    <Reference Include="DevExpress.DataAccess.v$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.DataAccess.$(DevExpressVersion).UI">
+    <Reference Include="DevExpress.DataAccess.v$(DevExpressVersion).UI">
     </Reference>
-    <Reference Include="DevExpress.Diagram.$(DevExpressVersion).Core">
+    <Reference Include="DevExpress.Diagram.v$(DevExpressVersion).Core">
     </Reference>
-    <Reference Include="DevExpress.ExpressApp.Security.$(DevExpressVersion)">
+    <Reference Include="DevExpress.ExpressApp.Security.v$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.ExpressApp.Security.Xpo.$(DevExpressVersion), Version=18.2.3.0, Culture=neutral, PublicKeyToken=8f2823b07f50ed12, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.ExpressApp.Security.Xpo.v$(DevExpressVersion), Version=18.2.3.0, Culture=neutral, PublicKeyToken=8f2823b07f50ed12, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\DevExpressBuild-18.2\Bin\Debug\DevExpress.ExpressApp.Security.Xpo.$(DevExpressVersion).dll</HintPath>
+      <HintPath>..\..\..\DevExpressBuild-18.2\Bin\Debug\DevExpress.ExpressApp.Security.Xpo.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.ExpressApp.$(DevExpressVersion)">
+    <Reference Include="DevExpress.ExpressApp.v$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.ExpressApp.Xpo.$(DevExpressVersion)">
+    <Reference Include="DevExpress.ExpressApp.Xpo.v$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.Images.$(DevExpressVersion)">
+    <Reference Include="DevExpress.Images.v$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.Office.$(DevExpressVersion).Core">
+    <Reference Include="DevExpress.Office.v$(DevExpressVersion).Core">
     </Reference>
-    <Reference Include="DevExpress.Pdf.$(DevExpressVersion).Core">
+    <Reference Include="DevExpress.Pdf.v$(DevExpressVersion).Core">
     </Reference>
-    <Reference Include="DevExpress.Pdf.$(DevExpressVersion).Drawing">
+    <Reference Include="DevExpress.Pdf.v$(DevExpressVersion).Drawing">
     </Reference>
-    <Reference Include="DevExpress.Persistent.Base.$(DevExpressVersion)">
+    <Reference Include="DevExpress.Persistent.Base.v$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.PivotGrid.$(DevExpressVersion).Core">
+    <Reference Include="DevExpress.PivotGrid.v$(DevExpressVersion).Core">
     </Reference>
-    <Reference Include="DevExpress.Printing.$(DevExpressVersion).Core">
+    <Reference Include="DevExpress.Printing.v$(DevExpressVersion).Core">
     </Reference>
-    <Reference Include="DevExpress.RichEdit.$(DevExpressVersion).Core">
+    <Reference Include="DevExpress.RichEdit.v$(DevExpressVersion).Core">
     </Reference>
-    <Reference Include="DevExpress.Sparkline.$(DevExpressVersion).Core">
+    <Reference Include="DevExpress.Sparkline.v$(DevExpressVersion).Core">
     </Reference>
-    <Reference Include="DevExpress.Utils.$(DevExpressVersion)">
+    <Reference Include="DevExpress.Utils.v$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.Utils.$(DevExpressVersion).UI">
+    <Reference Include="DevExpress.Utils.v$(DevExpressVersion).UI">
     </Reference>
-    <Reference Include="DevExpress.Xpo.$(DevExpressVersion)">
+    <Reference Include="DevExpress.Xpo.v$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.XtraBars.$(DevExpressVersion)">
+    <Reference Include="DevExpress.XtraBars.v$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.$(DevExpressVersion)">
+    <Reference Include="DevExpress.XtraCharts.v$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.$(DevExpressVersion).Extensions">
+    <Reference Include="DevExpress.XtraCharts.v$(DevExpressVersion).Extensions">
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.$(DevExpressVersion).UI">
+    <Reference Include="DevExpress.XtraCharts.v$(DevExpressVersion).UI">
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.$(DevExpressVersion).Wizard">
+    <Reference Include="DevExpress.XtraCharts.v$(DevExpressVersion).Wizard">
     </Reference>
-    <Reference Include="DevExpress.XtraDiagram.$(DevExpressVersion)">
+    <Reference Include="DevExpress.XtraDiagram.v$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.XtraEditors.$(DevExpressVersion)">
+    <Reference Include="DevExpress.XtraEditors.v$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.XtraGauges.$(DevExpressVersion).Core">
+    <Reference Include="DevExpress.XtraGauges.v$(DevExpressVersion).Core">
     </Reference>
-    <Reference Include="DevExpress.XtraGrid.$(DevExpressVersion)">
+    <Reference Include="DevExpress.XtraGrid.v$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.XtraLayout.$(DevExpressVersion)">
+    <Reference Include="DevExpress.XtraLayout.v$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.XtraNavBar.$(DevExpressVersion)">
+    <Reference Include="DevExpress.XtraNavBar.v$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.XtraPivotGrid.$(DevExpressVersion)">
+    <Reference Include="DevExpress.XtraPivotGrid.v$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.XtraPrinting.$(DevExpressVersion)">
+    <Reference Include="DevExpress.XtraPrinting.v$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.XtraReports.$(DevExpressVersion)">
+    <Reference Include="DevExpress.XtraReports.v$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.XtraReports.$(DevExpressVersion).Extensions">
+    <Reference Include="DevExpress.XtraReports.v$(DevExpressVersion).Extensions">
     </Reference>
-    <Reference Include="DevExpress.XtraRichEdit.$(DevExpressVersion)">
+    <Reference Include="DevExpress.XtraRichEdit.v$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.XtraRichEdit.$(DevExpressVersion).Extensions">
+    <Reference Include="DevExpress.XtraRichEdit.v$(DevExpressVersion).Extensions">
     </Reference>
-    <Reference Include="DevExpress.XtraTreeList.$(DevExpressVersion)">
+    <Reference Include="DevExpress.XtraTreeList.v$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.XtraVerticalGrid.$(DevExpressVersion)">
+    <Reference Include="DevExpress.XtraVerticalGrid.v$(DevExpressVersion)">
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />

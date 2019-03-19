@@ -39,147 +39,147 @@
     <AssemblyOriginatorKeyFile>SenDev.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Charts.$(DevExpressVersion).Core">
-      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.Charts.$(DevExpressVersion).Core.dll</HintPath>
+    <Reference Include="DevExpress.Charts.v$(DevExpressVersion).Core">
+      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.Charts.v$(DevExpressVersion).Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.CodeParser.$(DevExpressVersion)">
-      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.CodeParser.$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.CodeParser.v$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.CodeParser.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Data.$(DevExpressVersion)">
-      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.Data.$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.Data.v$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.Data.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.DataAccess.$(DevExpressVersion)">
-      <HintPath>..\packages\DevExpress.DataAccess.18.1.4.71\lib\net40\DevExpress.DataAccess.$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.DataAccess.v$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.DataAccess.18.1.4.71\lib\net40\DevExpress.DataAccess.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.DataAccess.$(DevExpressVersion).UI">
-      <HintPath>..\packages\DevExpress.DataAccess.UI.18.1.4.71\lib\net40\DevExpress.DataAccess.$(DevExpressVersion).UI.dll</HintPath>
+    <Reference Include="DevExpress.DataAccess.v$(DevExpressVersion).UI">
+      <HintPath>..\packages\DevExpress.DataAccess.UI.18.1.4.71\lib\net40\DevExpress.DataAccess.v$(DevExpressVersion).UI.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Diagram.$(DevExpressVersion).Core">
-      <HintPath>..\packages\DevExpress.Diagram.Core.18.1.4.71\lib\net40\DevExpress.Diagram.$(DevExpressVersion).Core.dll</HintPath>
+    <Reference Include="DevExpress.Diagram.v$(DevExpressVersion).Core">
+      <HintPath>..\packages\DevExpress.Diagram.Core.18.1.4.71\lib\net40\DevExpress.Diagram.v$(DevExpressVersion).Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.ExpressApp.Security.$(DevExpressVersion)">
-      <HintPath>..\packages\DevExpress.ExpressApp.Security.18.1.4.71\lib\net40\DevExpress.ExpressApp.Security.$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.ExpressApp.Security.v$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.ExpressApp.Security.18.1.4.71\lib\net40\DevExpress.ExpressApp.Security.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.ExpressApp.Security.Xpo.$(DevExpressVersion), Version=18.2.3.0, Culture=neutral, PublicKeyToken=8f2823b07f50ed12, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.ExpressApp.Security.Xpo.v$(DevExpressVersion), Version=18.2.3.0, Culture=neutral, PublicKeyToken=8f2823b07f50ed12, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\DevExpressBuild-18.2\Bin\Debug\DevExpress.ExpressApp.Security.Xpo.$(DevExpressVersion).dll</HintPath>
+      <HintPath>..\..\..\DevExpressBuild-18.2\Bin\Debug\DevExpress.ExpressApp.Security.Xpo.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.ExpressApp.$(DevExpressVersion)">
-      <HintPath>..\packages\DevExpress.ExpressApp.18.1.4.71\lib\net40\DevExpress.ExpressApp.$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.ExpressApp.v$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.ExpressApp.18.1.4.71\lib\net40\DevExpress.ExpressApp.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.ExpressApp.Web.$(DevExpressVersion)">
-      <HintPath>..\packages\DevExpress.ExpressApp.Web.18.1.4.71\lib\net40\DevExpress.ExpressApp.Web.$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.ExpressApp.Web.v$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.ExpressApp.Web.18.1.4.71\lib\net40\DevExpress.ExpressApp.Web.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.ExpressApp.Xpo.$(DevExpressVersion)">
-      <HintPath>..\packages\DevExpress.ExpressApp.Xpo.18.1.4.71\lib\net40\DevExpress.ExpressApp.Xpo.$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.ExpressApp.Xpo.v$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.ExpressApp.Xpo.18.1.4.71\lib\net40\DevExpress.ExpressApp.Xpo.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Images.$(DevExpressVersion)">
-      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.Images.$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.Images.v$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.Images.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Office.$(DevExpressVersion).Core">
-      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.Office.$(DevExpressVersion).Core.dll</HintPath>
+    <Reference Include="DevExpress.Office.v$(DevExpressVersion).Core">
+      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.Office.v$(DevExpressVersion).Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Pdf.$(DevExpressVersion).Core">
-      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.Pdf.$(DevExpressVersion).Core.dll</HintPath>
+    <Reference Include="DevExpress.Pdf.v$(DevExpressVersion).Core">
+      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.Pdf.v$(DevExpressVersion).Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Pdf.$(DevExpressVersion).Drawing">
-      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.Pdf.$(DevExpressVersion).Drawing.dll</HintPath>
+    <Reference Include="DevExpress.Pdf.v$(DevExpressVersion).Drawing">
+      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.Pdf.v$(DevExpressVersion).Drawing.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Persistent.Base.$(DevExpressVersion)">
-      <HintPath>..\packages\DevExpress.Persistent.Base.18.1.4.71\lib\net40\DevExpress.Persistent.Base.$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.Persistent.Base.v$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.Persistent.Base.18.1.4.71\lib\net40\DevExpress.Persistent.Base.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.PivotGrid.$(DevExpressVersion).Core">
-      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.PivotGrid.$(DevExpressVersion).Core.dll</HintPath>
+    <Reference Include="DevExpress.PivotGrid.v$(DevExpressVersion).Core">
+      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.PivotGrid.v$(DevExpressVersion).Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Printing.$(DevExpressVersion).Core">
-      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.Printing.$(DevExpressVersion).Core.dll</HintPath>
+    <Reference Include="DevExpress.Printing.v$(DevExpressVersion).Core">
+      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.Printing.v$(DevExpressVersion).Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.RichEdit.$(DevExpressVersion).Core">
-      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.RichEdit.$(DevExpressVersion).Core.dll</HintPath>
+    <Reference Include="DevExpress.RichEdit.v$(DevExpressVersion).Core">
+      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.RichEdit.v$(DevExpressVersion).Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Sparkline.$(DevExpressVersion).Core">
-      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.Sparkline.$(DevExpressVersion).Core.dll</HintPath>
+    <Reference Include="DevExpress.Sparkline.v$(DevExpressVersion).Core">
+      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.Sparkline.v$(DevExpressVersion).Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Utils.$(DevExpressVersion)">
-      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.Utils.$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.Utils.v$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.Utils.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Utils.$(DevExpressVersion).UI">
-      <HintPath>..\packages\DevExpress.Utils.UI.18.1.4.71\lib\net40\DevExpress.Utils.$(DevExpressVersion).UI.dll</HintPath>
+    <Reference Include="DevExpress.Utils.v$(DevExpressVersion).UI">
+      <HintPath>..\packages\DevExpress.Utils.UI.18.1.4.71\lib\net40\DevExpress.Utils.v$(DevExpressVersion).UI.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Web.ASPxTreeList.$(DevExpressVersion)">
-      <HintPath>..\packages\DevExpress.Web.ASPxTreeList.18.1.4.71\lib\net40\DevExpress.Web.ASPxTreeList.$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.Web.ASPxTreeList.v$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.Web.ASPxTreeList.18.1.4.71\lib\net40\DevExpress.Web.ASPxTreeList.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Web.Resources.$(DevExpressVersion)">
-      <HintPath>..\packages\DevExpress.Web.18.1.4.71\lib\net40\DevExpress.Web.Resources.$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.Web.Resources.v$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.Web.18.1.4.71\lib\net40\DevExpress.Web.Resources.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Web.$(DevExpressVersion)">
-      <HintPath>..\packages\DevExpress.Web.18.1.4.71\lib\net40\DevExpress.Web.$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.Web.v$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.Web.18.1.4.71\lib\net40\DevExpress.Web.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Xpo.$(DevExpressVersion)">
-      <HintPath>..\packages\DevExpress.Xpo.18.1.4.71\lib\net40\DevExpress.Xpo.$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.Xpo.v$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.Xpo.18.1.4.71\lib\net40\DevExpress.Xpo.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraBars.$(DevExpressVersion)">
-      <HintPath>..\packages\DevExpress.XtraEditors.18.1.4.71\lib\net40\DevExpress.XtraBars.$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.XtraBars.v$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.XtraEditors.18.1.4.71\lib\net40\DevExpress.XtraBars.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.$(DevExpressVersion)">
-      <HintPath>..\packages\DevExpress.XtraCharts.18.1.4.71\lib\net40\DevExpress.XtraCharts.$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.XtraCharts.v$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.XtraCharts.18.1.4.71\lib\net40\DevExpress.XtraCharts.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.$(DevExpressVersion).Extensions">
-      <HintPath>..\packages\DevExpress.XtraCharts.18.1.4.71\lib\net40\DevExpress.XtraCharts.$(DevExpressVersion).Extensions.dll</HintPath>
+    <Reference Include="DevExpress.XtraCharts.v$(DevExpressVersion).Extensions">
+      <HintPath>..\packages\DevExpress.XtraCharts.18.1.4.71\lib\net40\DevExpress.XtraCharts.v$(DevExpressVersion).Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.$(DevExpressVersion).UI">
-      <HintPath>..\packages\DevExpress.XtraCharts.18.1.4.71\lib\net40\DevExpress.XtraCharts.$(DevExpressVersion).UI.dll</HintPath>
+    <Reference Include="DevExpress.XtraCharts.v$(DevExpressVersion).UI">
+      <HintPath>..\packages\DevExpress.XtraCharts.18.1.4.71\lib\net40\DevExpress.XtraCharts.v$(DevExpressVersion).UI.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.$(DevExpressVersion).Wizard">
-      <HintPath>..\packages\DevExpress.XtraCharts.18.1.4.71\lib\net40\DevExpress.XtraCharts.$(DevExpressVersion).Wizard.dll</HintPath>
+    <Reference Include="DevExpress.XtraCharts.v$(DevExpressVersion).Wizard">
+      <HintPath>..\packages\DevExpress.XtraCharts.18.1.4.71\lib\net40\DevExpress.XtraCharts.v$(DevExpressVersion).Wizard.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraDiagram.$(DevExpressVersion)">
-      <HintPath>..\packages\DevExpress.XtraDiagram.18.1.4.71\lib\net40\DevExpress.XtraDiagram.$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.XtraDiagram.v$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.XtraDiagram.18.1.4.71\lib\net40\DevExpress.XtraDiagram.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraEditors.$(DevExpressVersion)">
-      <HintPath>..\packages\DevExpress.XtraEditors.18.1.4.71\lib\net40\DevExpress.XtraEditors.$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.XtraEditors.v$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.XtraEditors.18.1.4.71\lib\net40\DevExpress.XtraEditors.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraGauges.$(DevExpressVersion).Core">
-      <HintPath>..\packages\DevExpress.XtraGauges.Core.18.1.4.71\lib\net40\DevExpress.XtraGauges.$(DevExpressVersion).Core.dll</HintPath>
+    <Reference Include="DevExpress.XtraGauges.v$(DevExpressVersion).Core">
+      <HintPath>..\packages\DevExpress.XtraGauges.Core.18.1.4.71\lib\net40\DevExpress.XtraGauges.v$(DevExpressVersion).Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraGauges.$(DevExpressVersion).Presets">
-      <HintPath>..\packages\DevExpress.XtraGauges.Win.18.1.4.71\lib\net40\DevExpress.XtraGauges.$(DevExpressVersion).Presets.dll</HintPath>
+    <Reference Include="DevExpress.XtraGauges.v$(DevExpressVersion).Presets">
+      <HintPath>..\packages\DevExpress.XtraGauges.Win.18.1.4.71\lib\net40\DevExpress.XtraGauges.v$(DevExpressVersion).Presets.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraGauges.$(DevExpressVersion).Win">
-      <HintPath>..\packages\DevExpress.XtraGauges.Win.18.1.4.71\lib\net40\DevExpress.XtraGauges.$(DevExpressVersion).Win.dll</HintPath>
+    <Reference Include="DevExpress.XtraGauges.v$(DevExpressVersion).Win">
+      <HintPath>..\packages\DevExpress.XtraGauges.Win.18.1.4.71\lib\net40\DevExpress.XtraGauges.v$(DevExpressVersion).Win.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraGrid.$(DevExpressVersion)">
-      <HintPath>..\packages\DevExpress.XtraEditors.18.1.4.71\lib\net40\DevExpress.XtraGrid.$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.XtraGrid.v$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.XtraEditors.18.1.4.71\lib\net40\DevExpress.XtraGrid.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraLayout.$(DevExpressVersion)">
-      <HintPath>..\packages\DevExpress.XtraEditors.18.1.4.71\lib\net40\DevExpress.XtraLayout.$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.XtraLayout.v$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.XtraEditors.18.1.4.71\lib\net40\DevExpress.XtraLayout.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraNavBar.$(DevExpressVersion)">
-      <HintPath>..\packages\DevExpress.XtraEditors.18.1.4.71\lib\net40\DevExpress.XtraNavBar.$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.XtraNavBar.v$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.XtraEditors.18.1.4.71\lib\net40\DevExpress.XtraNavBar.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraPivotGrid.$(DevExpressVersion)">
-      <HintPath>..\packages\DevExpress.XtraPivotGrid.18.1.4.71\lib\net40\DevExpress.XtraPivotGrid.$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.XtraPivotGrid.v$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.XtraPivotGrid.18.1.4.71\lib\net40\DevExpress.XtraPivotGrid.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraPrinting.$(DevExpressVersion)">
-      <HintPath>..\packages\DevExpress.XtraEditors.18.1.4.71\lib\net40\DevExpress.XtraPrinting.$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.XtraPrinting.v$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.XtraEditors.18.1.4.71\lib\net40\DevExpress.XtraPrinting.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraReports.$(DevExpressVersion)">
-      <HintPath>..\packages\DevExpress.XtraReports.18.1.4.71\lib\net40\DevExpress.XtraReports.$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.XtraReports.v$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.XtraReports.18.1.4.71\lib\net40\DevExpress.XtraReports.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraReports.$(DevExpressVersion).Extensions">
-      <HintPath>..\packages\DevExpress.XtraReports.18.1.4.71\lib\net40\DevExpress.XtraReports.$(DevExpressVersion).Extensions.dll</HintPath>
+    <Reference Include="DevExpress.XtraReports.v$(DevExpressVersion).Extensions">
+      <HintPath>..\packages\DevExpress.XtraReports.18.1.4.71\lib\net40\DevExpress.XtraReports.v$(DevExpressVersion).Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraRichEdit.$(DevExpressVersion)">
-      <HintPath>..\packages\DevExpress.XtraRichEdit.18.1.4.71\lib\net40\DevExpress.XtraRichEdit.$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.XtraRichEdit.v$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.XtraRichEdit.18.1.4.71\lib\net40\DevExpress.XtraRichEdit.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraRichEdit.$(DevExpressVersion).Extensions">
-      <HintPath>..\packages\DevExpress.XtraRichEdit.18.1.4.71\lib\net40\DevExpress.XtraRichEdit.$(DevExpressVersion).Extensions.dll</HintPath>
+    <Reference Include="DevExpress.XtraRichEdit.v$(DevExpressVersion).Extensions">
+      <HintPath>..\packages\DevExpress.XtraRichEdit.18.1.4.71\lib\net40\DevExpress.XtraRichEdit.v$(DevExpressVersion).Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraTreeList.$(DevExpressVersion)">
-      <HintPath>..\packages\DevExpress.XtraEditors.18.1.4.71\lib\net40\DevExpress.XtraTreeList.$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.XtraTreeList.v$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.XtraEditors.18.1.4.71\lib\net40\DevExpress.XtraTreeList.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraVerticalGrid.$(DevExpressVersion)">
-      <HintPath>..\packages\DevExpress.XtraEditors.18.1.4.71\lib\net40\DevExpress.XtraVerticalGrid.$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.XtraVerticalGrid.v$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.XtraEditors.18.1.4.71\lib\net40\DevExpress.XtraVerticalGrid.v$(DevExpressVersion).dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
