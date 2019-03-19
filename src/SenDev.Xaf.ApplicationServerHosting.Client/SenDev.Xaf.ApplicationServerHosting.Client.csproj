@@ -39,93 +39,93 @@
     <AssemblyOriginatorKeyFile>SenDev.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.BonusSkins.v18.2">
-      <HintPath>..\packages\DevExpress.BonusSkins.18.1.4.71\lib\net40\DevExpress.BonusSkins.v18.2.dll</HintPath>
+    <Reference Include="DevExpress.BonusSkins.$(DevExpressVersion)">
+      <HintPath>..\packages\DevExpress.BonusSkins.18.1.4.71\lib\net40\DevExpress.BonusSkins.$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Charts.v18.2.Core">
-      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.Charts.v18.2.Core.dll</HintPath>
+    <Reference Include="DevExpress.Charts.$(DevExpressVersion).Core">
+      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.Charts.$(DevExpressVersion).Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.CodeParser.v18.2">
+    <Reference Include="DevExpress.CodeParser.$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.Data.v18.2">
+    <Reference Include="DevExpress.Data.$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.DataAccess.v18.2">
+    <Reference Include="DevExpress.DataAccess.$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.DataAccess.v18.2.UI">
+    <Reference Include="DevExpress.DataAccess.$(DevExpressVersion).UI">
     </Reference>
-    <Reference Include="DevExpress.Diagram.v18.2.Core">
+    <Reference Include="DevExpress.Diagram.$(DevExpressVersion).Core">
     </Reference>
-    <Reference Include="DevExpress.ExpressApp.Security.v18.2">
+    <Reference Include="DevExpress.ExpressApp.Security.$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.ExpressApp.Security.Xpo.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=8f2823b07f50ed12, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.ExpressApp.Security.Xpo.$(DevExpressVersion), Version=18.2.3.0, Culture=neutral, PublicKeyToken=8f2823b07f50ed12, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\DevExpressBuild-18.2\Bin\Debug\DevExpress.ExpressApp.Security.Xpo.v18.2.dll</HintPath>
+      <HintPath>..\..\..\DevExpressBuild-18.2\Bin\Debug\DevExpress.ExpressApp.Security.Xpo.$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.ExpressApp.v18.2">
+    <Reference Include="DevExpress.ExpressApp.$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.ExpressApp.Xpo.v18.2">
+    <Reference Include="DevExpress.ExpressApp.Xpo.$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.Images.v18.2">
+    <Reference Include="DevExpress.Images.$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.Office.v18.2.Core">
+    <Reference Include="DevExpress.Office.$(DevExpressVersion).Core">
     </Reference>
-    <Reference Include="DevExpress.Pdf.v18.2.Core">
+    <Reference Include="DevExpress.Pdf.$(DevExpressVersion).Core">
     </Reference>
-    <Reference Include="DevExpress.Pdf.v18.2.Drawing">
+    <Reference Include="DevExpress.Pdf.$(DevExpressVersion).Drawing">
     </Reference>
-    <Reference Include="DevExpress.Persistent.Base.v18.2">
+    <Reference Include="DevExpress.Persistent.Base.$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.PivotGrid.v18.2.Core">
+    <Reference Include="DevExpress.PivotGrid.$(DevExpressVersion).Core">
     </Reference>
-    <Reference Include="DevExpress.Printing.v18.2.Core">
+    <Reference Include="DevExpress.Printing.$(DevExpressVersion).Core">
     </Reference>
-    <Reference Include="DevExpress.RichEdit.v18.2.Core">
+    <Reference Include="DevExpress.RichEdit.$(DevExpressVersion).Core">
     </Reference>
-    <Reference Include="DevExpress.Sparkline.v18.2.Core">
+    <Reference Include="DevExpress.Sparkline.$(DevExpressVersion).Core">
     </Reference>
-    <Reference Include="DevExpress.Utils.v18.2">
+    <Reference Include="DevExpress.Utils.$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.Utils.v18.2.UI">
+    <Reference Include="DevExpress.Utils.$(DevExpressVersion).UI">
     </Reference>
-    <Reference Include="DevExpress.Xpo.v18.2">
+    <Reference Include="DevExpress.Xpo.$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.XtraBars.v18.2">
+    <Reference Include="DevExpress.XtraBars.$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.v18.2">
+    <Reference Include="DevExpress.XtraCharts.$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.v18.2.Extensions">
+    <Reference Include="DevExpress.XtraCharts.$(DevExpressVersion).Extensions">
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.v18.2.UI">
+    <Reference Include="DevExpress.XtraCharts.$(DevExpressVersion).UI">
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.v18.2.Wizard">
+    <Reference Include="DevExpress.XtraCharts.$(DevExpressVersion).Wizard">
     </Reference>
-    <Reference Include="DevExpress.XtraDiagram.v18.2">
+    <Reference Include="DevExpress.XtraDiagram.$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.XtraEditors.v18.2">
+    <Reference Include="DevExpress.XtraEditors.$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.XtraGauges.v18.2.Core">
+    <Reference Include="DevExpress.XtraGauges.$(DevExpressVersion).Core">
     </Reference>
-    <Reference Include="DevExpress.XtraGrid.v18.2">
+    <Reference Include="DevExpress.XtraGrid.$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.XtraLayout.v18.2">
+    <Reference Include="DevExpress.XtraLayout.$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.XtraNavBar.v18.2">
+    <Reference Include="DevExpress.XtraNavBar.$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.XtraPivotGrid.v18.2">
+    <Reference Include="DevExpress.XtraPivotGrid.$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.XtraPrinting.v18.2">
+    <Reference Include="DevExpress.XtraPrinting.$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.XtraReports.v18.2">
+    <Reference Include="DevExpress.XtraReports.$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.XtraReports.v18.2.Extensions">
+    <Reference Include="DevExpress.XtraReports.$(DevExpressVersion).Extensions">
     </Reference>
-    <Reference Include="DevExpress.XtraRichEdit.v18.2">
+    <Reference Include="DevExpress.XtraRichEdit.$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.XtraRichEdit.v18.2.Extensions">
+    <Reference Include="DevExpress.XtraRichEdit.$(DevExpressVersion).Extensions">
     </Reference>
-    <Reference Include="DevExpress.XtraTreeList.v18.2">
+    <Reference Include="DevExpress.XtraTreeList.$(DevExpressVersion)">
     </Reference>
-    <Reference Include="DevExpress.XtraVerticalGrid.v18.2">
+    <Reference Include="DevExpress.XtraVerticalGrid.$(DevExpressVersion)">
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
