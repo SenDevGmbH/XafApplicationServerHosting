@@ -30,6 +30,6 @@
   
     <MakeDir Directories="$(NugetTargetDir)"/>
 	 
-    <Exec ContinueOnError="false" Command="$(NuGetTool) pack %(NugetFile.Identity) -BasePath $(MSBuildProjectDirectory) -OutputDirectory $(NugetTargetDir) -Version $(DevExpressFullVersion).$(Build_BuildId)-alpha  -Properties SourceDir=$(FullOutputPath)"/>
+    <Exec ContinueOnError="false" Command="$(NuGetTool) pack %(NugetFile.Identity) -BasePath $(MSBuildProjectDirectory) -OutputDirectory $(NugetTargetDir) -Version $(DevExpressFullVersion).$(Build_BuildId)-  -Properties SourceDir=$(FullOutputPath)"/>
   </Target>
 </Project>
