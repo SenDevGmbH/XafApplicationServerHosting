@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <metadata>
-    <id>SenDev.Xaf.ApplicationServerHosting.Client</id>
+    <id>SenDev.Xaf.ApplicationServerHosting.Client$PackageNameSuffix$</id>
     <version>$version$</version>
     <title>SenDev XAF ApplicationServer Hosting Client Library</title>
     <authors>Sergej Derjabkin</authors>
