@@ -43,7 +43,7 @@ steps:
 - task: NuGetCommand@2
   inputs:
     command: 'push' 
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/SelfCompilied/*.nupkg'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/SelfCompiled/*.nupkg'
     nuGetFeedType: 'external' 
     publishFeedCredentials: 'PrivateNuget'
 
