@@ -12,7 +12,7 @@
     <copyright>Copyright 2015-2016 (c) Sergej Derjabkin</copyright>
     <tags>DevExpress XAF eXpressApplicationFramework</tags>
 	<dependencies> 
-		<dependency id="SenDev.Xaf.ApplicationServerHosting"  version="$version$"/> 
+		<dependency id="SenDev.Xaf.ApplicationServerHosting$PackageNameSuffix$"  version="$version$"/> 
 	</dependencies>
   </metadata>
   <files>
