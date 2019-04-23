@@ -200,6 +200,7 @@
       <Link>CommonVersion.cs</Link>
     </Compile>
     <Compile Include="ApplicationServer.cs" />
+    <Compile Include="ApplicationServerBase.cs" />
     <Compile Include="ApplicationServerFactory.cs" />
     <Compile Include="CachingRequestSecurityStrategyProvider.cs" />
     <Compile Include="CustomCreateDataLayerEventArgs.cs" />
