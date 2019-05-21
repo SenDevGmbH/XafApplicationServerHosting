@@ -117,11 +117,11 @@ namespace SenDev.Xaf.ApplicationServerHosting
         public bool InitializeApplication(XafApplication application)
         {
             const string defaultConnectionStringName = "ConnectionString";
-            ConnectionStringSettings connectionStringSetting = ConfigurationManager.ConnectionStrings[defaultConnectionStringName];
-            if (connectionStringSetting == null)
+            var connectionString = ConfigurationManager.ConnectionStrings[defaultConnectionStringName]?.ConnectionString ?? application.ConnectionString;
+            if (connectionString == null)
                 throw new InvalidOperationException($"Connection string '{defaultConnectionStringName}' not found.");
 
-            return InitializeApplication(application, connectionStringSetting.ConnectionString);
+            return InitializeApplication(application, connectionString);
         }
         public bool InitializeApplication(XafApplication application, string connectionString)
         {
