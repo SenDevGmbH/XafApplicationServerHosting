@@ -121,7 +121,7 @@ namespace SenDev.Xaf.ApplicationServerHosting
 
             foreach (var operation in endpoint.Contract.Operations)
             {
-
+                
                 for (;;)
                 {
                     var behavior = operation.Behaviors.OfType<DataContractSerializerOperationBehavior>().FirstOrDefault();
