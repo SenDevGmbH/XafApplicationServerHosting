@@ -14,7 +14,7 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Debug'
   NugetTargetDir: '$(Build.ArtifactStagingDirectory)'
-  VersionRevision: $[counter('revisionCounter', 110)]
+  VersionRevision: $[counter('revisionCounter', 277)]
 steps:
 - task: NuGetToolInstaller@0
 
