@@ -11,7 +11,7 @@ namespace SenDev.Xaf.ApplicationServerHosting
 {
     public static class BindingFactory
     {
-        public static BasicHttpBinding CreateBasicBinding(Uri[] addresses)
+        public static BasicHttpBinding CreateBasicBinding(Uri uri)
         {
 
             BasicHttpBinding binding = new BasicHttpBinding()
@@ -39,24 +39,24 @@ namespace SenDev.Xaf.ApplicationServerHosting
                 quotas.MaxNameTableCharCount =
                 quotas.MaxStringContentLength = int.MaxValue;
 
-            if (IsHttps(addresses))
+            if (IsHttps(uri))
             {
                 binding.Security.Mode = BasicHttpSecurityMode.Transport;
             }
             return binding;
         }
 
-        public static bool IsHttps(Uri[] addresses)
+        public static bool IsHttps(Uri uri)
         {
-            return addresses != null && addresses.All(a => string.Equals(a.Scheme, "https", StringComparison.OrdinalIgnoreCase));
+            return uri != null && string.Equals(uri.Scheme, "https", StringComparison.OrdinalIgnoreCase);
         }
 
-        public static Binding CreateBinaryEncodedBinding(Uri[] addresses)
+        public static Binding CreateBinaryEncodedBinding(Uri uri)
         {
-            return CreateBinaryEncodedBinding(addresses, AuthenticationSchemes.Anonymous);
+            return CreateBinaryEncodedBinding(uri, AuthenticationSchemes.Anonymous);
         }
 
-        public static Binding CreateBinaryEncodedBinding(Uri[] addresses, AuthenticationSchemes authenticationScheme)
+        public static Binding CreateBinaryEncodedBinding(Uri uri, AuthenticationSchemes authenticationScheme)
         {
             var binding = new CustomBinding
             {
@@ -65,7 +65,7 @@ namespace SenDev.Xaf.ApplicationServerHosting
                 SendTimeout = TimeSpan.FromMinutes(5),
             };
             binding.Elements.Add(new BinaryMessageEncodingBindingElement() { CompressionFormat = CompressionFormat.GZip });
-            binding.Elements.Add(IsHttps(addresses) ? CreateTransportElement<HttpsTransportBindingElement>(authenticationScheme) :
+            binding.Elements.Add(IsHttps(uri) ? CreateTransportElement<HttpsTransportBindingElement>(authenticationScheme) :
                 CreateTransportElement<HttpTransportBindingElement>(authenticationScheme));
 
             return binding;

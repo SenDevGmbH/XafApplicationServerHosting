@@ -11,9 +11,9 @@ namespace SenDev.Xaf.ApplicationServerHosting.Web
 {
     public class ApplicationServerFactory : ServiceHostFactoryBase
     {
-        protected override Binding CreateBinding(Uri[] addresses)
+        protected override Binding CreateBinding(Uri uri)
         {
-            return BindingFactory.CreateBinaryEncodedBinding(addresses);
+            return BindingFactory.CreateBinaryEncodedBinding(uri);
         }
 
         protected override Type ContractType

@@ -3,6 +3,7 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
 using System.ServiceModel.Activation;
+using System.Linq;
 
 namespace SenDev.Xaf.ApplicationServerHosting
 {
@@ -12,9 +13,13 @@ namespace SenDev.Xaf.ApplicationServerHosting
         protected override ServiceHost CreateServiceHost(Type serviceType, Uri[] baseAddresses)
         {
             ServiceHost host = new ServiceHost(serviceType, baseAddresses);
-            var binding = CreateBinding(baseAddresses);
-            ServiceEndpoint endpoint = host.AddServiceEndpoint(ContractType, binding, string.Empty);
-            XafDataContractResolver.AddToEndpoint(endpoint);
+
+            foreach (var address in baseAddresses)
+            {
+                var binding = CreateBinding(address);
+                ServiceEndpoint endpoint = host.AddServiceEndpoint(ContractType, binding, string.Empty);
+                XafDataContractResolver.AddToEndpoint(endpoint);
+            }
             CustomizeHost(host, baseAddresses);
             return host;
         }
@@ -24,7 +29,7 @@ namespace SenDev.Xaf.ApplicationServerHosting
             host.Description.Behaviors.Remove<ServiceDebugBehavior>();
             host.Description.Behaviors.Remove<ServiceAuthorizationBehavior>();
             host.Description.Behaviors.Remove<ServiceMetadataBehavior>();
-            bool isHttps = BindingFactory.IsHttps(addresses);
+            bool isHttps = addresses.Any(BindingFactory.IsHttps);
             host.Description.Behaviors.Add(new ServiceMetadataBehavior { HttpGetEnabled = !isHttps, HttpsGetEnabled = isHttps });
             host.Description.Behaviors.Add(new ServiceDebugBehavior { IncludeExceptionDetailInFaults = true });
 
@@ -32,9 +37,6 @@ namespace SenDev.Xaf.ApplicationServerHosting
 
         protected abstract Type ContractType { get; }
 
-        protected virtual Binding CreateBinding(Uri[] addresses)
-        {
-            return BindingFactory.CreateBasicBinding(addresses);
-        }
+        protected virtual Binding CreateBinding(Uri uri) => BindingFactory.CreateBasicBinding(uri);
     }
 }

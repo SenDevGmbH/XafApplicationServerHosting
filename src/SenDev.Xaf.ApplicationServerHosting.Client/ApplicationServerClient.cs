@@ -33,7 +33,7 @@ namespace SenDev.Xaf.ApplicationServerHosting
             if (DatabaseUpdateMode != DatabaseUpdateHandlerMode.None)
                 winApplication.DatabaseVersionMismatch += Application_DatabaseVersionMismatch;
 
-                return true;
+            return true;
         }
 
         protected virtual NonPersistentObjectSpaceProvider CreateNonPersistentObjectSpaceProvider(XafApplication application)
@@ -125,12 +125,12 @@ namespace SenDev.Xaf.ApplicationServerHosting
         }
         public bool InitializeApplication(XafApplication application, string connectionString)
         {
-            
+
             var uri = TryCreateUri(connectionString);
             if (uri == null)
                 return false;
 
-            return InitializeApplication(application, new EndpointAddress(uri), BindingFactory.CreateBinaryEncodedBinding(new[] { uri }));
+            return InitializeApplication(application, new EndpointAddress(uri), BindingFactory.CreateBinaryEncodedBinding(uri));
         }
 
         private static Uri TryCreateUri(string connectionString)
