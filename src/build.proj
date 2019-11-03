@@ -11,6 +11,8 @@
     <TargetDevExpressVersion Include="19.1.4" TargetParentDir="DX"/>
     <TargetDevExpressVersion Include="19.1.5" TargetParentDir="DX"/>
     <TargetDevExpressVersion Include="19.1.5" TargetParentDir="SelfCompiled" PackageNameSuffix=".SelfCompiled"/>
+    <TargetDevExpressVersion Include="19.2.3" TargetParentDir="DX"/>
+    <TargetDevExpressVersion Include="19.2.3" TargetParentDir="SelfCompiled" PackageNameSuffix=".SelfCompiled"/>
   </ItemGroup>
 
 
