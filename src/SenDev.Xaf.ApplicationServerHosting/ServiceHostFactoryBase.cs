@@ -18,10 +18,15 @@ namespace SenDev.Xaf.ApplicationServerHosting
             {
                 var binding = CreateBinding(address);
                 ServiceEndpoint endpoint = host.AddServiceEndpoint(ContractType, binding, string.Empty);
-                XafDataContractResolver.AddToEndpoint(endpoint);
+                ConfigureEndpoint(endpoint);
             }
             CustomizeHost(host, baseAddresses);
             return host;
+        }
+
+        protected virtual void ConfigureEndpoint(ServiceEndpoint endpoint)
+        {
+            XafDataContractResolver.AddToEndpoint(endpoint);
         }
 
         protected virtual void CustomizeHost(ServiceHost host, Uri[] addresses)
