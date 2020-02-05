@@ -15,6 +15,7 @@
       <Output TaskParameter="DownloadedFile" PropertyName="DevExpressBinariesArchive"/>
     </DownloadFile>
     <UnZip SourceFiles="$(DevExpressBinariesArchive)" DestinationFolder="$(OutputPath)"  ContinueOnError="True"/>
+    <Delete Files="$(DevExpressBinariesArchive)"/>
     <ConvertToAbsolutePath Paths="$(OutputPath)">
       <Output TaskParameter="AbsolutePaths" PropertyName="FullOutputPath"/>
     </ConvertToAbsolutePath>
