@@ -41,12 +41,15 @@ steps:
     nuGetFeedType: 'external' 
     publishFeedCredentials: 'nuget.org'
 
+- task: NuGetAuthenticate@0
+  displayName: 'NuGet Authenticate'
 - task: NuGetCommand@2
+  displayName: 'NuGet push'
   inputs:
-    command: 'push' 
+    command: push
     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/SelfCompiled/*.nupkg'
-    nuGetFeedType: 'external' 
-    publishFeedCredentials: 'PrivateNuget'
+    publishVstsFeed: 'DevExpress/Release'
+    allowPackageConflicts: false
 
 - task: VSTest@2
   inputs:
