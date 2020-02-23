@@ -35,6 +35,7 @@ steps:
     msbuildArguments: '/t:NuGet /p:TargetParentDir=$(TargetParentDir)'
 
 - task: NuGetCommand@2
+  condition: and(succeeded(), eq(variables['TargetParentDir'], 'DX'))
   inputs:
     command: 'push' 
     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/DX/*.nupkg'
