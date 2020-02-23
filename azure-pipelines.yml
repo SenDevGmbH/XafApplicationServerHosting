@@ -32,15 +32,7 @@ steps:
     solution: '$(solution)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-    msbuildArguments: '/t:NuGet /p:TargetParentDir=$(TargetParentDir)'
-
-- task: NuGetCommand@2
-  condition: and(succeeded(), eq(variables['TargetParentDir'], 'DX'))
-  inputs:
-    command: 'push' 
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/DX/*.nupkg'
-    nuGetFeedType: 'external' 
-    publishFeedCredentials: 'nuget.org'
+    msbuildArguments: '/t:NuGet'
 
 - task: NuGetAuthenticate@0
   displayName: 'NuGet Authenticate'
