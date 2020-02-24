@@ -32,7 +32,7 @@ steps:
     solution: '$(solution)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-    msbuildArguments: '/t:NuGet'
+    msbuildArguments: '/t:NuGet /p:TargetParentDir=DX'
 
 - task: NuGetCommand@2
   inputs:
