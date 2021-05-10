@@ -8,7 +8,7 @@ using System.Web;
 
 namespace SenDev.Xaf.ApplicationServerHosting.Web
 {
-    public class HybridValueManager<TValue> : IValueManager<TValue>
+    public class HybridValueManager<TValue> : ASPSessionValueManagerBase, IValueManager<TValue>
     {
         private readonly string valueManagerKey;
         private IValueManager<TValue> sessionValueManager;
