@@ -56,16 +56,24 @@ namespace SenDev.Xaf.ApplicationServerHosting
         private IDataStore CreateStoreCore(out IDisposable[] disposableObjects)
         {
             disposableObjects = new IDisposable[0];
-            var dataStore  = new MixedDataStore(
-                XpoDefault.GetConnectionProvider(ConnectionString, AutoCreateOption.DatabaseAndSchema), 
+            var mixedDataStore = new MixedDataStore(
+                XpoDefault.GetConnectionProvider(ConnectionString, AutoCreateOption.DatabaseAndSchema),
                 DataStoreMode.SchemaUpdate);
 
+            Dictionary<string, IDataStore> dataStores = new Dictionary<string, IDataStore>();
             foreach (var entry in entries)
-                dataStore.AddDataStore(XpoDefault.GetConnectionProvider(entry.ConnectionString, 
-                    entry.Mode == DataStoreMode.SchemaUpdate ?  AutoCreateOption.DatabaseAndSchema : AutoCreateOption.SchemaAlreadyExists),
+            {
+                string connectionString = entry.ConnectionString;
+                if (!dataStores.TryGetValue(connectionString, out var dataStore))
+                {
+                    dataStores[connectionString] = dataStore = XpoDefault.GetConnectionProvider(connectionString,
+                                        entry.Mode == DataStoreMode.SchemaUpdate ? AutoCreateOption.DatabaseAndSchema : AutoCreateOption.SchemaAlreadyExists);
+                }
+                mixedDataStore.AddDataStore(dataStore,
                     entry.Mode, entry.Prefix, entry.DeletePrefix);
+            }
 
-            return dataStore;
+            return mixedDataStore;
         }
     }
 }
