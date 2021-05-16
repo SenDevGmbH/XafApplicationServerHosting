@@ -2,10 +2,9 @@
 
 namespace UnitTests
 {
-    [Persistent("2_TestObject2")]
-    public class TestObject2 : XPBaseObject
+    public class MasterTestObject : XPBaseObject
     {
-        public TestObject2(Session session) : base(session)
+        public MasterTestObject(Session session) : base(session)
         {
 
         }
@@ -25,6 +24,11 @@ namespace UnitTests
             get { return name; }
             set { SetPropertyValue(nameof(Name), ref name, value); }
         }
+
+        [Association]
+        public XPCollection<DetailTestObject> Details => GetCollection<DetailTestObject>(nameof(Details));
+
     }
+
 
 }

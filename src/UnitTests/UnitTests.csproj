@@ -55,6 +55,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DetailTestObject.cs" />
+    <Compile Include="MasterTestObject.cs" />
     <Compile Include="MixedDataStoreTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestObject1.cs" />

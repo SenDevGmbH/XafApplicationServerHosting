@@ -14,23 +14,114 @@ namespace SenDev.Xaf.ApplicationServerHosting
     public class MixedDataStore : ICommandChannel, ISqlDataStore, IDisposable
     {
 
-        private class DataStoreEntry
+
+        private abstract class DataStoreEntryBase
         {
 
-            internal DataStoreEntry(IDataStore dataStore, DataStoreMode mode, string prefix, bool deletePrefix)
+            protected DataStoreEntryBase(IDataStore dataStore, DataStoreMode mode)
             {
                 DataStore = dataStore;
                 Mode = mode;
+            }
+
+            internal IDataStore DataStore { get; }
+            public DataStoreMode Mode { get; }
+
+            internal abstract bool Matches(DBTable table);
+            internal abstract void UpdateStatement(ModificationStatement statement);
+            internal abstract void UpdateStatement(SelectStatement statement);
+            internal abstract DBTable UpdateTable(DBTable table);
+        }
+
+        private class TablesDataStoreEntry : DataStoreEntryBase
+        {
+            private readonly HashSet<string> tableNames;
+            public TablesDataStoreEntry(IDataStore dataStore, DataStoreMode mode, IEnumerable<string> tableNames) : base(dataStore, mode)
+            {
+                this.tableNames = new HashSet<string>(tableNames, StringComparer.OrdinalIgnoreCase);
+            }
+
+            internal override bool Matches(DBTable table)
+            {
+                return tableNames.Contains(table.Name);
+            }
+
+            internal override void UpdateStatement(ModificationStatement statement)
+            {
+            }
+
+            internal override void UpdateStatement(SelectStatement statement)
+            {
+            }
+
+            internal override DBTable UpdateTable(DBTable table) => table;
+        }
+
+        private class PrefixDataStoreEntry : DataStoreEntryBase
+        {
+
+            internal PrefixDataStoreEntry(IDataStore dataStore, DataStoreMode mode, string prefix, bool deletePrefix) : base(dataStore, mode)
+            {
                 Prefix = prefix;
                 DeletePrefix = deletePrefix;
             }
-            internal IDataStore DataStore { get; }
 
-            internal DataStoreMode Mode { get; }
 
-            internal string Prefix { get; }
+            private string Prefix { get; }
 
             internal bool DeletePrefix { get; }
+
+
+            private static DBTable RemovePrefix(DBTable table, string prefix)
+            {
+                DBTable cloned = new ClonedDbTable(table, prefix);
+                cloned.Name = table.Name.Substring(prefix.Length);
+                return cloned;
+            }
+
+            private void RemovePrefix(JoinNode node, string prefix, Dictionary<DBTable, DBTable> clonedTables)
+            {
+                if (node.Table.Name.StartsWith(prefix, StringComparison.Ordinal))
+                {
+                    DBTable cloned;
+                    if (!clonedTables.TryGetValue(node.Table, out cloned))
+                    {
+                        cloned = RemovePrefix(node.Table, prefix);
+                        clonedTables[node.Table] = cloned;
+                        node.Table = cloned;
+                    }
+                }
+                foreach (var subNode in node.SubNodes)
+                    RemovePrefix(subNode, prefix, clonedTables);
+            }
+
+            private void RemovePrefix(JoinNode node)
+            {
+                if (!string.IsNullOrEmpty(Prefix))
+                    RemovePrefix(node, Prefix, new Dictionary<DBTable, DBTable>());
+            }
+
+            internal override void UpdateStatement(ModificationStatement statement)
+            {
+                RemovePrefix(statement);
+            }
+
+
+
+            internal override bool Matches(DBTable table)
+            {
+                if (table is ClonedDbTable cloned)
+                    return Prefix == cloned.Prefix;
+                else
+                    return !string.IsNullOrEmpty(Prefix) && table.Name.StartsWith(Prefix, StringComparison.Ordinal);
+            }
+
+            internal override void UpdateStatement(SelectStatement statement) => RemovePrefix(statement);
+
+            internal override DBTable UpdateTable(DBTable table)
+            {
+                return RemovePrefix(table, Prefix);
+            }
         }
 
 
@@ -50,22 +141,29 @@ namespace SenDev.Xaf.ApplicationServerHosting
 
         }
 
-        private readonly List<DataStoreEntry> entries = new List<DataStoreEntry>();
+        private readonly List<DataStoreEntryBase> entries = new List<DataStoreEntryBase>();
 
 
         public MixedDataStore(IDataStore dataStore, DataStoreMode mode)
         {
-            AddDataStore(dataStore, mode, string.Empty, false);
+            DefaultDataStoreEntry = new TablesDataStoreEntry(dataStore, mode, Enumerable.Empty<string>());
         }
         public void AddDataStore(IDataStore dataStore, DataStoreMode mode, string prefix, bool deletePrefix)
         {
-            entries.Add(new DataStoreEntry(dataStore, mode, prefix, deletePrefix));
+            entries.Add(new PrefixDataStoreEntry(dataStore, mode, prefix, deletePrefix));
+        }
+        public void AddDataStore(IDataStore dataStore, DataStoreMode mode, IEnumerable<string> tableNames)
+        {
+            entries.Add(new TablesDataStoreEntry(dataStore, mode, tableNames));
         }
 
-        private IDataStore MainDataStore => entries.First().DataStore;
+
+        private IDataStore MainDataStore => DefaultDataStoreEntry.DataStore;
         public AutoCreateOption AutoCreateOption => MainDataStore.AutoCreateOption;
 
         public IDbConnection Connection => (MainDataStore as ISqlDataStore)?.Connection ?? throw new NotSupportedException();
+
+        private TablesDataStoreEntry DefaultDataStoreEntry { get; }
 
         public IDbCommand CreateCommand() => (MainDataStore as ISqlDataStore)?.CreateCommand() ?? throw new NotSupportedException();
 
@@ -81,7 +179,7 @@ namespace SenDev.Xaf.ApplicationServerHosting
             foreach (var statement in dmlStatements)
             {
                 var entry = GetDataStoreEntry(statement, DataStoreMode.ReadWrite);
-                RemovePrefix(statement, entry.Prefix);
+                entry.UpdateStatement(statement);
                 identities.AddRange(entry.DataStore.ModifyData(statement).Identities);
 
             }
@@ -89,36 +187,6 @@ namespace SenDev.Xaf.ApplicationServerHosting
             return new ModificationResult(identities.ToArray());
         }
 
-
-
-        private void RemovePrefix(JoinNode node, string prefix)
-        {
-            if (!string.IsNullOrEmpty(prefix))
-                RemovePrefix(node, prefix, new Dictionary<DBTable, DBTable>());
-        }
-
-        private void RemovePrefix(JoinNode node, string prefix, Dictionary<DBTable, DBTable> clonedTables)
-        {
-            if (node.Table.Name.StartsWith(prefix, StringComparison.Ordinal))
-            {
-                DBTable cloned;
-                if (!clonedTables.TryGetValue(node.Table, out cloned))
-                {
-                    cloned = RemovePrefix(node.Table, prefix);
-                    clonedTables[node.Table] = cloned;
-                    node.Table = cloned;
-                }
-            }
-            foreach (var subNode in node.SubNodes)
-                RemovePrefix(subNode, prefix, clonedTables);
-        }
-
-        private static DBTable RemovePrefix(DBTable table, string prefix)
-        {
-            DBTable cloned = new ClonedDbTable(table, prefix);
-            cloned.Name = table.Name.Substring(prefix.Length);
-            return cloned;
-        }
 
         private static DBTable[] GetTables(params BaseStatement[] statements)
         {
@@ -152,9 +220,8 @@ namespace SenDev.Xaf.ApplicationServerHosting
             return tables.ToArray();
         }
 
-        private DataStoreEntry GetDataStoreEntry(BaseStatement statement, DataStoreMode mode)
+        private DataStoreEntryBase GetDataStoreEntry(BaseStatement statement, DataStoreMode mode)
         {
-            if (entries.Count == 1) return entries[0];
             var tables = GetTables(statement);
 
             var dataStores = tables.Select(GetDataStoreEntry).Distinct().ToArray();
@@ -166,23 +233,16 @@ namespace SenDev.Xaf.ApplicationServerHosting
                 return result;
             }
 
-            string joinedNames = string.Join(", ", tables.Select(t => t.Name));
 
             if (dataStores.Length == 0)
-                throw new InvalidOperationException($"No data stores found for tables: {joinedNames}");
+                return DefaultDataStoreEntry;
 
+            string joinedNames = string.Join(", ", tables.Select(t => t.Name));
             throw new InvalidOperationException($"Multiple data stores found in sinlge statement. Tables: {joinedNames}");
 
         }
 
-        private DataStoreEntry GetDataStoreEntry(DBTable table)
-        {
-            ClonedDbTable cloned = table as ClonedDbTable;
-            if (cloned != null)
-                return entries.FirstOrDefault(e => e.Prefix == cloned.Prefix);
-            else
-                return entries.FirstOrDefault(e => !string.IsNullOrEmpty(e.Prefix) && table.Name.StartsWith(e.Prefix, StringComparison.Ordinal)) ?? entries[0];
-        }
+        private DataStoreEntryBase GetDataStoreEntry(DBTable table) => entries.FirstOrDefault(e => e.Matches(table)) ?? DefaultDataStoreEntry;
 
         public SelectedData SelectData(params SelectStatement[] selects)
         {
@@ -193,7 +253,7 @@ namespace SenDev.Xaf.ApplicationServerHosting
             foreach (var statement in selects)
             {
                 var entry = GetDataStoreEntry(statement, DataStoreMode.ReadOnly);
-                RemovePrefix(statement, entry.Prefix);
+                entry.UpdateStatement(statement);
                 results.AddRange(entry.DataStore.SelectData(statement).ResultSet);
             }
 
@@ -203,12 +263,30 @@ namespace SenDev.Xaf.ApplicationServerHosting
 
         public UpdateSchemaResult UpdateSchema(bool dontCreateIfFirstTableNotExist, params DBTable[] tables)
         {
+            HashSet<DBTable> tablesToUpdate = new HashSet<DBTable>(tables);
+            UpdateSchemaResult Update(DataStoreEntryBase entry)
+            {
+                var filteredTables = tablesToUpdate.Where(t => GetDataStoreEntry(t) == entry).Select(t => entry.UpdateTable(t)).ToArray();
+                var result = entry.DataStore.UpdateSchema(dontCreateIfFirstTableNotExist, filteredTables);
+
+                foreach (var updatedTable in filteredTables)
+                    tablesToUpdate.Remove(updatedTable);
+
+                return result;
+
+
+
+            }
             foreach (var entry in entries.Where(e => e.Mode >= DataStoreMode.SchemaUpdate))
             {
-                var filteredTables = tables.Where(t => GetDataStoreEntry(t) == entry).Select(t => RemovePrefix(t, entry.Prefix)).ToArray();
-                if (entry.DataStore.UpdateSchema(dontCreateIfFirstTableNotExist, filteredTables) == UpdateSchemaResult.FirstTableNotExists)
-                    return UpdateSchemaResult.FirstTableNotExists;
+                var result = Update(entry);
+                if (result == UpdateSchemaResult.FirstTableNotExists)
+                    return result;
+
             }
+
+            if (DefaultDataStoreEntry.Mode == DataStoreMode.SchemaUpdate)
+                return Update(DefaultDataStoreEntry);
 
             return UpdateSchemaResult.SchemaExists;
 
