@@ -44,6 +44,7 @@
       <PackageVersion Condition="$(BranchName)!='' AND $(BranchName)!='master' AND $(IsReleaseBuild)!=true">$(Version)-$(BranchName)</PackageVersion>
     </PropertyGroup>
     <Exec ContinueOnError="false" Command="$(NuGetTool) push bin\Nuget\SenDev*$(Version).nupkg -ApiKey $(NugetPushApiKey) -Source &quot;$(PackageSources)&quot;" Condition="$(NugetPushApiKey)!=''"/>
+    <RemoveDir Directories="$(MSBuildProjectDirectory)\bin\%(TargetDevExpressVersion.Identity)"/>
   </Target>
 
 </Project>
