@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DevExpress.Xpo.DB;
-using SenDev.Xaf.ApplicationServerHosting.Web;
 using DevExpress.Xpo;
 using System.Linq;
 using SenDev.Xaf.ApplicationServerHosting;
