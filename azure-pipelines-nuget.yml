@@ -16,7 +16,7 @@ variables:
   NugetTargetDir: '$(Build.ArtifactStagingDirectory)'
   VersionRevision: $[counter('revisionCounter', 277)]
 steps:
-- task: NuGetToolInstaller@1
+- task: NuGetToolInstaller@0
 
 - task: NuGetCommand@2
   inputs:

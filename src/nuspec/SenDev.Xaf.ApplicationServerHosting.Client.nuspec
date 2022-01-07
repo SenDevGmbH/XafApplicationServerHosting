@@ -16,8 +16,8 @@
 	</dependencies>
   </metadata>
   <files>
-        <file src="$SourceDir$SenDev.Xaf.ApplicationServerHosting.Client.dll" target="lib\net48" />
-	<file src="$SourceDir$SenDev.Xaf.ApplicationServerHosting.Client.pdb" target="lib\net48" />
+        <file src="$SourceDir$SenDev.Xaf.ApplicationServerHosting.Client.dll" target="lib\net40" />
+	<file src="$SourceDir$SenDev.Xaf.ApplicationServerHosting.Client.pdb" target="lib\net40" />
 	<file src="$SourceDir$..\..\SenDev.Xaf.ApplicationServerHosting.Client\**\*.cs" target="src\SenDev.Xaf.ApplicationServerHosting.Client" />
 
   </files>

@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SenDev.Xaf.ApplicationServerHosting.Client</RootNamespace>
     <AssemblyName>SenDev.Xaf.ApplicationServerHosting.Client</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
@@ -40,127 +40,92 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v$(DevExpressVersion)">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.BonusSkins.v$(DevExpressVersion).dll</HintPath>
+      <HintPath>..\packages\DevExpress.BonusSkins.18.1.4.71\lib\net40\DevExpress.BonusSkins.v$(DevExpressVersion).dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Charts.v$(DevExpressVersion).Core">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.Charts.v$(DevExpressVersion).Core.dll</HintPath>
+      <HintPath>..\packages\DevExpress.Core.18.1.4.71\lib\net40\DevExpress.Charts.v$(DevExpressVersion).Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.CodeParser.v$(DevExpressVersion)">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.CodeParser.v$(DevExpressVersion).dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Data.v$(DevExpressVersion)">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.Data.v$(DevExpressVersion).dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.DataAccess.v$(DevExpressVersion)">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.DataAccess.v$(DevExpressVersion).dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.DataAccess.v$(DevExpressVersion).UI">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.DataAccess.v$(DevExpressVersion).UI.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Diagram.v$(DevExpressVersion).Core">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.Diagram.v$(DevExpressVersion).Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.ExpressApp.Security.v$(DevExpressVersion)">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.ExpressApp.Security.v$(DevExpressVersion).dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.ExpressApp.Security.Xpo.v$(DevExpressVersion)">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.ExpressApp.Security.Xpo.v$(DevExpressVersion).dll</HintPath>
+    <Reference Include="DevExpress.ExpressApp.Security.Xpo.v$(DevExpressVersion), Version=18.2.3.0, Culture=neutral, PublicKeyToken=8f2823b07f50ed12, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\DevExpressBuild-18.2\Bin\Debug\DevExpress.ExpressApp.Security.Xpo.v$(DevExpressVersion).dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.ExpressApp.v$(DevExpressVersion)">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.ExpressApp.v$(DevExpressVersion).dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.ExpressApp.Xpo.v$(DevExpressVersion)">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.ExpressApp.Xpo.v$(DevExpressVersion).dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Images.v$(DevExpressVersion)">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.Images.v$(DevExpressVersion).dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Office.v$(DevExpressVersion).Core">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.Office.v$(DevExpressVersion).Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Pdf.v$(DevExpressVersion).Core">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.Pdf.v$(DevExpressVersion).Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Pdf.v$(DevExpressVersion).Drawing">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.Pdf.v$(DevExpressVersion).Drawing.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Persistent.Base.v$(DevExpressVersion)">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.Persistent.Base.v$(DevExpressVersion).dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.PivotGrid.v$(DevExpressVersion).Core">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.PivotGrid.v$(DevExpressVersion).Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Printing.v$(DevExpressVersion).Core">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.Printing.v$(DevExpressVersion).Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.RichEdit.v$(DevExpressVersion).Core">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.RichEdit.v$(DevExpressVersion).Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Sparkline.v$(DevExpressVersion).Core">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.Sparkline.v$(DevExpressVersion).Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Utils.v$(DevExpressVersion)">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.Utils.v$(DevExpressVersion).dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Utils.v$(DevExpressVersion).UI">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.Utils.v$(DevExpressVersion).UI.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Xpo.v$(DevExpressVersion)">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.Xpo.v$(DevExpressVersion).dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraBars.v$(DevExpressVersion)">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.XtraBars.v$(DevExpressVersion).dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraCharts.v$(DevExpressVersion)">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.XtraCharts.v$(DevExpressVersion).dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraCharts.v$(DevExpressVersion).Extensions">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.XtraCharts.v$(DevExpressVersion).Extensions.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraCharts.v$(DevExpressVersion).UI">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.XtraCharts.v$(DevExpressVersion).UI.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraCharts.v$(DevExpressVersion).Wizard">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.XtraCharts.v$(DevExpressVersion).Wizard.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraDiagram.v$(DevExpressVersion)">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.XtraDiagram.v$(DevExpressVersion).dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraEditors.v$(DevExpressVersion)">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.XtraEditors.v$(DevExpressVersion).dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraGauges.v$(DevExpressVersion).Core">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.XtraGauges.v$(DevExpressVersion).Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraGrid.v$(DevExpressVersion)">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.XtraGrid.v$(DevExpressVersion).dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraLayout.v$(DevExpressVersion)">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.XtraLayout.v$(DevExpressVersion).dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraNavBar.v$(DevExpressVersion)">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.XtraNavBar.v$(DevExpressVersion).dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraPivotGrid.v$(DevExpressVersion)">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.XtraPivotGrid.v$(DevExpressVersion).dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraPrinting.v$(DevExpressVersion)">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.XtraPrinting.v$(DevExpressVersion).dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraReports.v$(DevExpressVersion)">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.XtraReports.v$(DevExpressVersion).dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraReports.v$(DevExpressVersion).Extensions">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.XtraReports.v$(DevExpressVersion).Extensions.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraRichEdit.v$(DevExpressVersion)">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.XtraRichEdit.v$(DevExpressVersion).dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v$(DevExpressVersion).Extensions">
     </Reference>
     <Reference Include="DevExpress.XtraTreeList.v$(DevExpressVersion)">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.XtraTreeList.v$(DevExpressVersion).dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraVerticalGrid.v$(DevExpressVersion)">
-      <HintPath>$(DevExpressBinLocation)\DevExpress.XtraVerticalGrid.v$(DevExpressVersion).dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
