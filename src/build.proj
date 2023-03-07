@@ -1,4 +1,4 @@
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0" DefaultTargets="Build">
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="Current" DefaultTargets="Build">
   <ItemGroup>
     <ProjectToBuild Include="build-core.proj"/>
     <TargetDevExpressVersion Include="18.1.7" TargetParentDir="DX"/>
