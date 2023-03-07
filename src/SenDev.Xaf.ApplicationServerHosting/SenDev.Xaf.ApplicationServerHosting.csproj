@@ -9,11 +9,11 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SenDev.Xaf.ApplicationServerHosting</RootNamespace>
     <AssemblyName>SenDev.Xaf.ApplicationServerHosting</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
     <TargetFrameworkProfile />
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,6 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -168,9 +170,6 @@
     </Reference>
     <Reference Include="DevExpress.XtraRichEdit.v$(DevExpressVersion)">
       <HintPath>..\packages\DevExpress.XtraRichEdit.18.1.4.71\lib\net40\DevExpress.XtraRichEdit.v$(DevExpressVersion).dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.XtraRichEdit.v$(DevExpressVersion).Extensions">
-      <HintPath>..\packages\DevExpress.XtraRichEdit.18.1.4.71\lib\net40\DevExpress.XtraRichEdit.v$(DevExpressVersion).Extensions.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraTreeList.v$(DevExpressVersion)">
       <HintPath>..\packages\DevExpress.XtraEditors.18.1.4.71\lib\net40\DevExpress.XtraTreeList.v$(DevExpressVersion).dll</HintPath>
