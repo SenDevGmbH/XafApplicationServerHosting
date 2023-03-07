@@ -41,7 +41,7 @@
       Properties="OutputPath=$(MSBuildProjectDirectory)\bin\%(TargetDevExpressVersion.Identity)\;DevExpressFullVersion=%(TargetDevExpressVersion.Identity);TargetParentDir=%(TargetDevExpressVersion.TargetParentDir);PackageNameSuffix=%(TargetDevExpressVersion.PackageNameSuffix)" 
       StopOnFirstFailure="true" 
       Targets="Nuget" 
-      ToolsVersion="15.0"
+      ToolsVersion="Current"
       Condition="$(TargetParentDir)=='' OR %(TargetDevExpressVersion.TargetParentDir)==$(TargetParentDir)"/>
 
     <MakeDir Directories="bin\nuget"/>
