@@ -32,18 +32,22 @@ namespace SenDev.Xaf.ApplicationServerHosting
             };
 
 
-            var quotas = binding.ReaderQuotas;
-            quotas.MaxArrayLength =
-                quotas.MaxBytesPerRead =
-                quotas.MaxDepth =
-                quotas.MaxNameTableCharCount =
-                quotas.MaxStringContentLength = int.MaxValue;
+            SetMaxReaderQuotas(binding.ReaderQuotas);
 
             if (IsHttps(uri))
             {
                 binding.Security.Mode = BasicHttpSecurityMode.Transport;
             }
             return binding;
+        }
+
+        private static void SetMaxReaderQuotas(XmlDictionaryReaderQuotas quotas)
+        {
+            quotas.MaxArrayLength =
+                            quotas.MaxBytesPerRead =
+                            quotas.MaxDepth =
+                            quotas.MaxNameTableCharCount =
+                            quotas.MaxStringContentLength = int.MaxValue;
         }
 
         public static bool IsHttps(Uri uri)
@@ -64,7 +68,9 @@ namespace SenDev.Xaf.ApplicationServerHosting
                 ReceiveTimeout = TimeSpan.FromMinutes(10),
                 SendTimeout = TimeSpan.FromMinutes(5),
             };
-            binding.Elements.Add(new BinaryMessageEncodingBindingElement() { CompressionFormat = CompressionFormat.GZip });
+            BinaryMessageEncodingBindingElement binaryEncodingElement = new BinaryMessageEncodingBindingElement() { CompressionFormat = CompressionFormat.GZip };
+            SetMaxReaderQuotas(binaryEncodingElement.ReaderQuotas);
+            binding.Elements.Add(binaryEncodingElement);
             binding.Elements.Add(IsHttps(uri) ? CreateTransportElement<HttpsTransportBindingElement>(authenticationScheme) :
                 CreateTransportElement<HttpTransportBindingElement>(authenticationScheme));
 
