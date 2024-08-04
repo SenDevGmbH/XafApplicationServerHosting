@@ -32,6 +32,9 @@
     <TargetDevExpressVersion Include="21.2.4" TargetParentDir="DX"/>
     <TargetDevExpressVersion Include="22.2.4" TargetParentDir="DX"/>
     <TargetDevExpressVersion Include="22.2.4" TargetParentDir="SelfCompiled" PackageNameSuffix=".SelfCompiled"/>
+    <TargetDevExpressVersion Include="24.1.4" TargetParentDir="DX"/>
+    <TargetDevExpressVersion Include="24.1.4" TargetParentDir="SelfCompiled" PackageNameSuffix=".SelfCompiled"/>
+
   </ItemGroup>
 
 
