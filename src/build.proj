@@ -1,37 +1,6 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="Current" DefaultTargets="Build">
   <ItemGroup>
     <ProjectToBuild Include="build-core.proj"/>
-    <TargetDevExpressVersion Include="18.1.7" TargetParentDir="DX"/>
-    <TargetDevExpressVersion Include="18.2.6" TargetParentDir="DX"/>
-    <TargetDevExpressVersion Include="18.2.7" TargetParentDir="DX"/>
-    <TargetDevExpressVersion Include="18.2.8" TargetParentDir="DX"/>
-    <TargetDevExpressVersion Include="18.2.7" TargetParentDir="SelfCompiled" PackageNameSuffix=".SelfCompiled"/>
-    <TargetDevExpressVersion Include="19.1.4" TargetParentDir="SelfCompiled" PackageNameSuffix=".SelfCompiled"/>
-    <TargetDevExpressVersion Include="19.1.3" TargetParentDir="DX"/>
-    <TargetDevExpressVersion Include="19.1.4" TargetParentDir="DX"/>
-    <TargetDevExpressVersion Include="19.1.5" TargetParentDir="DX"/>
-    <TargetDevExpressVersion Include="19.1.5" TargetParentDir="SelfCompiled" PackageNameSuffix=".SelfCompiled"/>
-    <TargetDevExpressVersion Include="19.2.3" TargetParentDir="DX"/>
-    <TargetDevExpressVersion Include="19.2.3" TargetParentDir="SelfCompiled" PackageNameSuffix=".SelfCompiled"/>
-    <TargetDevExpressVersion Include="19.2.4" TargetParentDir="DX"/>
-    <TargetDevExpressVersion Include="19.2.5" TargetParentDir="DX"/>
-    <TargetDevExpressVersion Include="19.2.6" TargetParentDir="DX"/>
-    <TargetDevExpressVersion Include="19.2.6" TargetParentDir="SelfCompiled" PackageNameSuffix=".SelfCompiled"/>
-    <TargetDevExpressVersion Include="19.2.7" TargetParentDir="DX"/>
-    <TargetDevExpressVersion Include="19.2.7" TargetParentDir="SelfCompiled" PackageNameSuffix=".SelfCompiled"/>
-    <TargetDevExpressVersion Include="20.1.4" TargetParentDir="DX"/>
-    <TargetDevExpressVersion Include="20.1.4" TargetParentDir="SelfCompiled" PackageNameSuffix=".SelfCompiled"/>
-    <TargetDevExpressVersion Include="20.1.7" TargetParentDir="DX"/>
-    <TargetDevExpressVersion Include="20.1.7" TargetParentDir="SelfCompiled" PackageNameSuffix=".SelfCompiled"/>
-    <TargetDevExpressVersion Include="20.2.4" TargetParentDir="DX"/>
-    <TargetDevExpressVersion Include="20.2.4" TargetParentDir="SelfCompiled" PackageNameSuffix=".SelfCompiled"/>
-    <TargetDevExpressVersion Include="20.2.7" TargetParentDir="DX"/>
-    <TargetDevExpressVersion Include="21.2.3" TargetParentDir="SelfCompiled" PackageNameSuffix=".SelfCompiled"/>
-    <TargetDevExpressVersion Include="21.2.4" TargetParentDir="SelfCompiled" PackageNameSuffix=".SelfCompiled"/>
-    <TargetDevExpressVersion Include="21.2.3" TargetParentDir="DX"/>
-    <TargetDevExpressVersion Include="21.2.4" TargetParentDir="DX"/>
-    <TargetDevExpressVersion Include="22.2.4" TargetParentDir="DX"/>
-    <TargetDevExpressVersion Include="22.2.4" TargetParentDir="SelfCompiled" PackageNameSuffix=".SelfCompiled"/>
     <TargetDevExpressVersion Include="24.1.4" TargetParentDir="DX"/>
     <TargetDevExpressVersion Include="24.1.4" TargetParentDir="SelfCompiled" PackageNameSuffix=".SelfCompiled"/>
 

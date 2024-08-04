@@ -1,13 +1,10 @@
-﻿using DevExpress.Xpo.DB;
-using DevExpress.Xpo.Helpers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics.Contracts;
 using DevExpress.Data.Filtering;
+using DevExpress.Xpo.DB;
+using DevExpress.Xpo.Helpers;
 
 namespace SenDev.Xaf.ApplicationServerHosting
 {
@@ -143,10 +140,17 @@ namespace SenDev.Xaf.ApplicationServerHosting
 
         private readonly List<DataStoreEntryBase> entries = new List<DataStoreEntryBase>();
 
+        public event ConnectionOpeningEventHandler ConnectionOpening;
+        public event ConnectionOpenedEventHandler ConnectionOpened;
 
         public MixedDataStore(IDataStore dataStore, DataStoreMode mode)
         {
             DefaultDataStoreEntry = new TablesDataStoreEntry(dataStore, mode, Enumerable.Empty<string>());
+            if (dataStore is ISqlDataStore sqlDataStore)
+            {
+                sqlDataStore.ConnectionOpening += (sender, args) => ConnectionOpening?.Invoke(sender, args);
+                sqlDataStore.ConnectionOpened += (sender, args) => ConnectionOpened?.Invoke(sender, args);
+            }
         }
         public void AddDataStore(IDataStore dataStore, DataStoreMode mode, string prefix, bool deletePrefix)
         {
